@@ -2,15 +2,15 @@
 
 
 
-Flask
+# Flask
 Pip3 install flask
 
-BS4
+# BS4
 pip3 install bs4
 
-lxml
+# lxml
 pip3 install lxml
 
-PymySQL
+# PymySQL
 pip3 install PyMySQL
 
