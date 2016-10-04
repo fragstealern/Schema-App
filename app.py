@@ -10,7 +10,6 @@ import unicodedata
 
 
 
-
 # Konfigurerar applikationen (VIKTIGT- SE TILL SÅ ATT SECREY_KEY ÄR RANDOM VID LAUNCH)
 app = Flask(__name__)
 
@@ -38,6 +37,8 @@ def get_schedule():
 
         for tag_attrs in second_tag:
             date =  str(tag_attrs['datum'])
+            date = [date[i:i+2] for i in range(0, len(date), 2)]
+            date = "20" + date[0] + "-" + date[1] + "-" + date[2]
             startTime = str(tag_attrs['startTid'])
             endTime = str(tag_attrs['slutTid'])
 
