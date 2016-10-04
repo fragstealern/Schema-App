@@ -6,6 +6,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 import pymysql.cursors
 import unicodedata
+import simplejson
 
 
 
@@ -31,7 +32,7 @@ def get_schedule():
     soup = 	BeautifulSoup(response, "lxml-xml")
     schemaPost = soup.findAll('schemaPost')
 
-
+    opjsonlist = []
     for post in schemaPost:
         second_tag = post('bokatDatum')
 
@@ -57,12 +58,16 @@ def get_schedule():
             moment= "Moment finns ej"
 
 
-        print(startTime + " " + endTime + " " + date + " " + lokal + " " + moment)
+
+        opjsonlist.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
 
 
+
+
+    print(opjsonlist)
         # print(date + " " + startTime + " " + endTime + " " + lokal)
 
-    return render_template("test.html", test=moment)
+    return render_template("test.html", test=opjsonlist)
             # Connect to the database
 
 
