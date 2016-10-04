@@ -29,7 +29,7 @@ def get_schedule():
     course = "TGIAA15h"
     response = urllib.request.urlopen('http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&sokMedAND=false&sprak=SV&resurser=p.' + course + '%2C')
 
-    soup = BeautifulSoup(response, "xml")
+    soup = 	BeautifulSoup(response, "lxml-xml")
     schemaPost = soup.findAll('schemaPost')
 
 
@@ -56,7 +56,7 @@ def get_schedule():
             moment= "Moment finns ej"
 
 
-        print(moment)
+        print(startTime + " " + endTime + " " + date + " " + lokal + " " + moment)
 
 
         # print(date + " " + startTime + " " + endTime + " " + lokal)
