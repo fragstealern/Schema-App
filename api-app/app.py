@@ -24,15 +24,14 @@ def home():
 
 
 
-@app.route('/get_schedule')
-def get_schedule():
-    course = "TGIAA15h"
+@app.route('/get_schedule/<course>')
+def get_schedule(course):
     response = urllib.request.urlopen('http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&sokMedAND=false&sprak=SV&resurser=p.' + course + '%2C')
 
     soup = 	BeautifulSoup(response, "lxml-xml")
     schemaPost = soup.findAll('schemaPost')
 
-    opjsonlist = []
+    jsonList = []
     for post in schemaPost:
         second_tag = post('bokatDatum')
 
@@ -57,17 +56,17 @@ def get_schedule():
         except:
             moment= "Moment finns ej"
 
+        jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
+    print(jsonList)
+    limitAmount=request.args.get('limit')
 
+    if limitAmount != "":
+        jsonList=jsonList[0:int(limitAmount)]
 
-        opjsonlist.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
+    
+	
 
-
-
-
-    print(opjsonlist)
-        # print(date + " " + startTime + " " + endTime + " " + lokal)
-
-    return render_template("test.html", test=opjsonlist)
+    return render_template("test.html", test=jsonList)
             # Connect to the database
 
 
