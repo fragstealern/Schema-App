@@ -1,11 +1,11 @@
-# *-* coding:utf-8*-*
 
+# *-* coding:utf-8*-*
 # Laddar in alla ramverk.
 from flask import Flask, render_template, redirect, url_for, request, flash
-
 import urllib.request
 from bs4 import BeautifulSoup
 import pymysql.cursors
+import unicodedata
 
 
 
@@ -26,88 +26,43 @@ def home():
 
 @app.route('/get_schedule')
 def get_schedule():
-    course = "TGHMM15h"
+    course = "TGIAA15h"
     response = urllib.request.urlopen('http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&sokMedAND=false&sprak=SV&resurser=p.' + course + '%2C')
 
-    soup = BeautifulSoup(response, "lxml-xml")
-    schema = soup.findAll('schemaPost')
-
-    for eachtakeaway in schema:
-        another_tag = eachtakeaway('bokatDatum')
-        for tag_attrs in another_tag:
-                date =  str(tag_attrs['datum'])
-                startTime = str(tag_attrs['startTid'])
-                endTime = str(tag_attrs['slutTid'])
-                print (date + " " + startTime + " " + endTime)
-
-                # Connect to the database
-                connection = pymysql.connect(host='anderssonoscar.se',
-                                             user='schedules-app',
-                                             password='Admin123',
-                                             db='schedules',
-                                             charset='utf8mb4',
-                                             cursorclass=pymysql.cursors.DictCursor)
-
-                try:
-                    with connection.cursor() as cursor:
-                        # Create a new record
-
-                        sql = "create table IF NOT EXISTS schedules." + course + "(date MEDIUMINT, startTime VARCHAR(70), endTime VARCHAR(70));"
-                        cursor.execute(sql)
-                        sql = "INSERT INTO schedules." + course + """(date, startTime, endTime) VALUES (%s, %s, %s)"""
-                        cursor.execute(sql, (date, startTime, endTime))
-
-                    # connection is not autocommit by default. So you must commit to save
-                    # your changes.
-                    connection.commit()
-                finally:
-                    connection.close()
+    soup = BeautifulSoup(response, "xml")
+    schemaPost = soup.findAll('schemaPost')
 
 
+    for post in schemaPost:
+        second_tag = post('bokatDatum')
+
+        for tag_attrs in second_tag:
+            date =  str(tag_attrs['datum'])
+            startTime = str(tag_attrs['startTid'])
+            endTime = str(tag_attrs['slutTid'])
+
+        resursnod_Tag = post.find(resursTypId="RESURSER_LOKALER")
+
+        try:
+            resursid_Tag = resursnod_Tag.find("resursId")
+            lokal = resursid_Tag.get_text()
+        except:
+            lokal = "Lokal finns ej"
+
+        try:
+            moment_Tag = post.find("moment")
+            moment = moment_Tag.get_text()
+        except:
+            moment= "Moment finns ej"
 
 
+        print(moment)
 
 
+        # print(date + " " + startTime + " " + endTime + " " + lokal)
 
-
-
-    return render_template("test.html", test = schema)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return render_template("test.html", test=moment)
+            # Connect to the database
 
 
 
