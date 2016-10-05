@@ -1,0 +1,29 @@
+KANDIDAT
+Datavetenskap och applikationsutveckling (TGDAB)
+Informationsarkitekt (TGIAA)
+IT och ekonomi (TGITA)
+Medieproduktion och processdesign (TGMPP)
+Produktionsledare: Media (SGPRM)
+Spelutveckling (TGSPA)
+Systemutvecklare (TGSYA)
+Systemutvecklare (TGSYS)
+
+HÖGSKOLEINGENJÖR
+Projekt- och produktionsledning (TGHBYBPRO)
+Byggteknik (TGHBYBTEK)
+Fastighetsteknik (TGHBYFTEK)
+Teknik och arkitektur (TGHBYTARK)
+Projekt- och produktionsledning (THBYABPRO)
+Byggteknik (THBYABTEK)
+Teknik och arkitektur (THBYATARK)
+Datateknik och Mobil IT (TGHDM)
+Datateknik och Mobil IT (THDTA)
+Maskin- och materialteknik (TGHMM)
+Produktutveckling och design (TGHPR)
+
+MAGISTER/MASTER
+Computer Science (TACSO)
+Strategisk medieutveckling (TAMEA)
+
+FÖRUTBILDNINGEN
+Naturvetenskapligt/tekniskt basår (NZNTB)
