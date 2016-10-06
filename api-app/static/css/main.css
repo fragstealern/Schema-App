@@ -5,13 +5,24 @@ html, body{
 body{
     padding-top: 30px;
 }
+
+#select-div{
+    width: 100%;
+    min-height: 100px; 
+    background: rgba(255,255,255,0.4);
+}
+#program{
+    border-style: solid;
+    color: #000;
+}
+
 .getTime{
     text-align: center;
     padding: 10px;
     font-size: 30px;
     font-weight: 100;
     box-shadow: 0px 0px 3px 0px;
-    border-radius: 10px;
+    border-radius: 100px;
     transition: 0.3s;
 }
 .getTime:hover{
