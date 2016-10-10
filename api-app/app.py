@@ -57,15 +57,15 @@ def get_schedule(course):
             moment= "Moment finns ej"
 
         jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
-    print(jsonList[0])
+
 
 
     limitAmount=request.args.get('limit')
     if limitAmount != None:
         jsonList=jsonList[0:int(limitAmount)]
 
-    return Flask.jsonify(**jsonList[0])
-            # Connect to the database
+
+    return jsonify(jsonList)
 
 
 
