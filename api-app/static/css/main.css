@@ -9,13 +9,22 @@ body{
 #select-div{
     width: 100%;
     min-height: 100px; 
-    background: rgba(255,255,255,0.4);
+    text-align: center;
 }
 #program{
+    margin: 0 auto;
+    display: block;
+    z-index: 9;
     border-style: solid;
-    color: #000;
+    width: 90%;
+    background: #000;
+    color: #fff;
+    border-color: #000;
 }
-
+select#program{
+    
+    padding: 0px 10px;
+}
 .getTime{
     text-align: center;
     padding: 10px;
