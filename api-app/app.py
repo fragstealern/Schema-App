@@ -1,7 +1,7 @@
 
 # *-* coding:utf-8*-*
 # Laddar in alla ramverk.
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash, Response, jsonify
 import urllib.request
 from bs4 import BeautifulSoup
 import pymysql.cursors
@@ -57,17 +57,14 @@ def get_schedule(course):
             moment= "Moment finns ej"
 
         jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
-    print(jsonList)
+    print(jsonList[0])
 
 
     limitAmount=request.args.get('limit')
     if limitAmount != None:
         jsonList=jsonList[0:int(limitAmount)]
 
-
-
-
-    return render_template("test.html", test=jsonList)
+    return Flask.jsonify(**jsonList[0])
             # Connect to the database
 
 
