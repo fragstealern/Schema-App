@@ -11,8 +11,8 @@ body{
     min-height: 100px; 
     text-align: center;
 }
-#program{
-    margin: 0 auto;
+.drop-menu{
+    margin: 20px auto;
     display: block;
     z-index: 9;
     border-style: solid;
@@ -21,9 +21,11 @@ body{
     color: #fff;
     border-color: #000;
 }
-select#program{
+.drop-menu:focus{
+    border-color: #000;
+}
+#program{
     
-    padding: 0px 10px;
 }
 .getTime{
     text-align: center;
