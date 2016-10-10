@@ -61,7 +61,6 @@ def get_schedule(course):
 
 
     limitAmount=request.args.get('limit')
-    print(limitAmount)
     if limitAmount != None:
         jsonList=jsonList[0:int(limitAmount)]
 
