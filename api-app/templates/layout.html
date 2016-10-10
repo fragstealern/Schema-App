@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/materialize.css')}}"  media="screen,projection"/>
+    <link rel="shortcut icon" href="{{url_for('static', filename='bilder/F_ICON.png')}}">
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link href="../static/css/grayscale.min.css" rel="stylesheet">
+  <title>
+    Schema -
+    {% block title %}
+    {% endblock %}
+  </title>
+</head>
+<body>
+
+  <!-- INSERT NAV HERE -->
+
+  <div id="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <!-- INSERT FOOTER HERE -->
+
+
+
+
+
+  <!-- SCRIPTS -->
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.xgallerify.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/javascript.js')}}"></script>
+
+</body>
+</html>
