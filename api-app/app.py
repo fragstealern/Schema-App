@@ -85,12 +85,13 @@ def limit(jsonList, limitAmount):
 
 
 def limitdate(jsonList, limitDate):
-    
+
     if date == limitDate:
         print (date)
         print (limitDate)
         jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
 
+        # LOOPA LISTAN MED JSON SEN KÖR IF SATSEN SEN RETURNERA JSONLISTAN
 
 
 
