@@ -32,6 +32,7 @@ def get_schedule(course):
     schemaPost = soup.findAll('schemaPost')
 
     jsonList = []
+    limitDateList = []
     for post in schemaPost:
         second_tag = post('bokatDatum')
 
@@ -56,13 +57,27 @@ def get_schedule(course):
         except:
             moment= "Moment finns ej"
 
+
+        limitDate=request.args.get('date')
+        if limitDate != None:
+            if date == limitDate:
+                print (date)
+                print (limitDate)
+                limitDateList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
+
+
+
         jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
+
 
 
 
     limitAmount=request.args.get('limit')
     if limitAmount != None:
         jsonList=jsonList[0:int(limitAmount)]
+    limitDate=request.args.get('date')
+    if limitDate != None:
+        return jsonify(limitDateList)
 
 
     return jsonify(jsonList)
