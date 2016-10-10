@@ -58,13 +58,15 @@ def get_schedule(course):
 
         jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
     print(jsonList)
-    limitAmount=request.args.get('limit')
 
-    if limitAmount != "":
+
+    limitAmount=request.args.get('limit')
+    print(limitAmount)
+    if limitAmount != None:
         jsonList=jsonList[0:int(limitAmount)]
 
-    
-	
+
+
 
     return render_template("test.html", test=jsonList)
             # Connect to the database
