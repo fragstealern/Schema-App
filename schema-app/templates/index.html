@@ -7,54 +7,85 @@
 <header class="intro">
         <div class="intro-body">
             <div class="container">
+                <div class="traindiv">
+                <div class="trainbody">
+                    <div class="windows">
+                        <div class="window"></div>
+                        <div class="window"></div>
+                        <div class="window"></div>
+                        <div class="window"></div>
+                        <div class="window"></div>
+                    </div>
+                </div>
+                <div class="busdiv">
+                    <div class="busbody">
+                        <div class="buswindows">
+                            <div class="big buswindow"></div>
+                            <div class="small buswindow"></div>
+                            <div class="small buswindow"></div>
+                            <div class="big buswindow"></div>
+                            <div class="small buswindow"></div>
+                            <div class="small buswindow"></div>
+                            <div class="small buswindow"></div>
+                        </div>
+                    </div>
+                </div>
+</div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">School o'clock</h1>
-                        <div id="select-div">
-                            <select id="program" class="drop-menu">
-                                <option disabled selected value>Välj ditt program</option>
-                                <option value="TGDAB">
-                                    Datavetenskap och applikationsutveckling (TGDAB)
-                                </option>
-                                <option value="TGIAA">
-                                    Informationsarkitekt (TGIAA)
-                                </option>
-                                <option value="TGITA">
-                                    IT och ekonomi (TGITA)
-                                </option>
-                                <option value="TGMPP">
-                                    Medieproduktion och processdesign (TGMPP)
-                                </option>
-                                <option value="SGPRM">
-                                    Produktionsledare: Media (SGPRM)
-                                </option>
-                                <option value="TGSPA">
-                                    Spelutveckling (TGSPA)
-                                </option>
-                                <option value="TGSYA">
-                                    Systemutvecklare (TGSYA)
-                                </option>
-                                <option value="TGSYS">
-                                    Systemutvecklare (TGSYS)
-                                </option>
-                            </select>
-                            <h3>och</h3>
-                            <select id="station" class="drop-menu">
-                                <option disabled selected value>Välj din hållplats</option>
-                            </select>
+                        <div id="time">
+                            <iframe src="http://free.timeanddate.com/clock/i5er71qc/n239/tlse27/fs16/fcfff/tct/pct/tt0/tw1/tm1/td1/th1/tb4" width="159" height="38" allowTransparency="true"></iframe>
                         </div>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                        
+                        <div id="select-div">
+                            <form id="findTime" >
+                                <select id="program" class="drop-menu">
+                                    <option disabled selected value>Välj ditt program</option>
+                                    <option value="TGDAB">
+                                        Datavetenskap och applikationsutveckling (TGDAB)
+                                    </option>
+                                    <option value="TGIAA">
+                                        Informationsarkitekt (TGIAA)
+                                    </option>
+                                    <option value="TGITA">
+                                        IT och ekonomi (TGITA)
+                                    </option>
+                                    <option value="TGMPP">
+                                        Medieproduktion och processdesign (TGMPP)
+                                    </option>
+                                    <option value="SGPRM">
+                                        Produktionsledare: Media (SGPRM)
+                                    </option>
+                                    <option value="TGSPA">
+                                        Spelutveckling (TGSPA)
+                                    </option>
+                                    <option value="TGSYA">
+                                        Systemutvecklare (TGSYA)
+                                    </option>
+                                    <option value="TGSYS">
+                                        Systemutvecklare (TGSYS)
+                                    </option>
+                                </select>
+                                <select id="year" class="drop-menu">
+                                    <option disabled selected value>Årskull</option>
+                                    <option value="16h">16</option>
+                                    <option value="15h">15</option>
+                                    <option value="14h">14</option>
+                                </select>
+                                <h5 id="och">och</h5>
+                                <select id="station" class="drop-menu">
+                                    <option disabled selected value>Välj din hållplats</option>
+                                </select>
+                                <a href="/get_schedule/" class="getTime">
+                                    Hämta schema
+                                </a>
+                            </form>
+                        </div>
                     </div>
-                    <a href="/get_schedule" class="getTime">
-                            Hämta schema
-                    </a>
                 </div>
+            
             </div>
         </div>
     </header>
-
 
 {% endblock %}
