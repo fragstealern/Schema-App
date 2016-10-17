@@ -6,7 +6,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 import pymysql.cursors
 import unicodedata
-import simplejson
+import json
 
 
 
@@ -59,20 +59,19 @@ def get_schedule(course):
 
 
 
-        jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
+        jsonList.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True))
 
 
+    limitDate=request.args.get('date')
+    if limitDate != None:
+        jsonList=limitdate(jsonList, limitDate)
 
 
     limitAmount=request.args.get('limit')
     if limitAmount != None:
         jsonList=limit(jsonList, limitAmount)
 
-    limitDate=request.args.get('date')
-    if limitDate != None:
-        print(jsonList)
-        print(limitDate)
-        jsonList=limitdate(jsonList, limitDate)
+
 
 
 
@@ -80,18 +79,25 @@ def get_schedule(course):
     return jsonify(jsonList)
 
 def limit(jsonList, limitAmount):
+    """
+        Skapar en lista som går från första saken till limitAmount's nummer 0 -> X
+    """
     jsonList=jsonList[0:int(limitAmount)]
     return jsonList
 
 
 def limitdate(jsonList, limitDate):
-
-    if date == limitDate:
-        print (date)
-        print (limitDate)
-        jsonList.append(simplejson.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True, separators=(',', ': ')))
-
-        # LOOPA LISTAN MED JSON SEN KÖR IF SATSEN SEN RETURNERA JSONLISTAN
+    """
+        Loppar igenom jsonList'an
+        Jämför om datumen är lika med det som angavs i URL parametern
+    """
+    returnThis = []
+    for item in jsonList:
+        parsed_json = json.loads(item)
+        schedule_date = parsed_json["Datum"]
+        if schedule_date == limitDate:
+            returnThis.append(item)
+    return returnThis
 
 
 
