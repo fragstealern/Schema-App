@@ -32,7 +32,9 @@ def home():
 @app.route('/get_mashup')
 def get_mashup():
     station="Hassleholm"
-    response = urllib.request.urlopen("https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input="+station).read()
+    stationLink = "https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=" + station
+    print(stationLink)
+    response = urllib.request.urlopen(stationLink).read()
     return (response)
 
     jsonList = []
