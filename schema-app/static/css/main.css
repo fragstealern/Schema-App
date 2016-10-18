@@ -3,7 +3,7 @@ html, body{
     text-align: center;
 }
 body{
-    
+    padding-top: 5%;
 }
 .traindiv{
     position: fixed;
@@ -75,4 +75,14 @@ iframe{
     font-weight: 300;
     background: rgba(255,255,255,0.3);
     color: #42DCA3;
+}
+.inline{
+    display: inline-block;
+}
+.line{
+    display: inline-block;
+    height: 2px;
+    width: 20%;
+    background: rgba(0,0,0,0.8);
+    margin: 8px 0px;
 }

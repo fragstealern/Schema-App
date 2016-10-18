@@ -49,15 +49,15 @@ p {
     line-height: 1.6;
   }
 }
-a {
+#submit {
     color: #fff;
     background-color: #42DCA3;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-a:hover,
-a:focus {
+#submit:hover,
+#submit:focus {
     text-decoration: none;
     color: #1d9b6c;
 }
