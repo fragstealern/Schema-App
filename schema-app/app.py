@@ -8,8 +8,13 @@ import pymysql.cursors
 import unicodedata
 import simplejson
 
+#  c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb
 
+# https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=Helsingborg
+# HITTA STATIONS ID
 
+# https://api.resrobot.se/v2/trip?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&originId=740000001&destId=740000002&format=json
+# SÖK EFTER RESA
 
 # Konfigurerar applikationen (VIKTIGT- SE TILL SÅ ATT SECREY_KEY ÄR RANDOM VID LAUNCH)
 app = Flask(__name__)
