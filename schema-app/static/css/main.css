@@ -7,8 +7,8 @@ body{
 }
 .traindiv{
     position: fixed;
-    margin-top: -400px;
-    z-index: 0;
+    margin-top: 0px;
+    z-index: 2;
 }
 #time{
     background: rgba(0,0,0,0.6);

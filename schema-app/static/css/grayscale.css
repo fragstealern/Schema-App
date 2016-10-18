@@ -28,7 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 10px;
+    margin: 10px 0px;
     text-transform: uppercase;
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -50,6 +50,9 @@ p {
   }
 }
 #submit {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-style: italic;
     color: #fff;
     background-color: #42DCA3;
     -webkit-transition: all 0.2s ease-in-out;
@@ -137,7 +140,13 @@ p {
   padding-top: 100px;
 }
 footer {
-  padding: 50px 0;
+position: fixed;
+  padding: 10px 0;
+    top: 93%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
 }
 footer p {
   margin: 0;

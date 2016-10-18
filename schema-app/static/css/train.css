@@ -1,20 +1,14 @@
-html{
-    height: 100%;
-}
-body{
-    margin: 0px;
-    height: 100%;
-}
 .trainbody{
     width: 400px;
     height: 100px;
     background: #339;
     border-radius: 90px 90px 10px 10px;
     animation: moving 7s infinite ease;
+    margin: 0px 0px 10px 0px;
 }
 @keyframes moving{
-    from{margin-left: 110%;}
-    to{margin-left: -110%;}
+    from{margin-left: 280%;}
+    to{margin-left: -200%;}
 }
 .windows{
     padding: 20px 40px;
@@ -37,8 +31,8 @@ body{
     animation: movingback 10s infinite ease;
 }
 @keyframes movingback{
-    from{margin-left: -110%;}
-    to{margin-left: 110%;}
+    from{margin-left: -200%;}
+    to{margin-left: 280%;}
 }
 .buswindows{
     padding-top: 10px;
