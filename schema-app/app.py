@@ -56,6 +56,7 @@ def get_mashup():
 
 def get_schema(program, year):
     schema = "http://localhost:8082/get_schedule/" + program + year
+    print(schema)
     response = urllib.request.urlopen(schema).read()
     response = response.decode("utf-8")
     return response

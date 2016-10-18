@@ -93,3 +93,6 @@ iframe{
     background: rgba(0,0,0,0.8);
     margin: 8px 0px;
 }
+.knappar{
+    display: inline-block;
+}
