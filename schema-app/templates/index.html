@@ -4,33 +4,33 @@
 {% endblock %}
 
 {% block content %}
-<header class="intro">
+<header class="intro" id="background-div">
         <div class="intro-body">
             <div class="container">
                 <div class="traindiv">
-                <div class="trainbody">
-                    <div class="windows">
-                        <div class="window"></div>
-                        <div class="window"></div>
-                        <div class="window"></div>
-                        <div class="window"></div>
-                        <div class="window"></div>
+                    <div class="trainbody">
+                        <div class="windows">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="busdiv">
-                    <div class="busbody">
-                        <div class="buswindows">
-                            <div class="big buswindow"></div>
-                            <div class="small buswindow"></div>
-                            <div class="small buswindow"></div>
-                            <div class="big buswindow"></div>
-                            <div class="small buswindow"></div>
-                            <div class="small buswindow"></div>
-                            <div class="small buswindow"></div>
+                    <div class="busdiv">
+                        <div class="busbody">
+                            <div class="buswindows">
+                                <div class="big buswindow"></div>
+                                <div class="small buswindow"></div>
+                                <div class="small buswindow"></div>
+                                <div class="big buswindow"></div>
+                                <div class="small buswindow"></div>
+                                <div class="small buswindow"></div>
+                                <div class="small buswindow"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-</div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">School o'clock</h1>
@@ -73,9 +73,8 @@
                                     <option value="14h">14</option>
                                 </select>
                                 <h5 id="och">och</h5>
-                                <select id="station" class="drop-menu">
-                                    <option disabled selected value>Välj din hållplats</option>
-                                </select>
+                                <input id="from" class="drop-menu input" placeholder="Skriv in din hållplats">
+                                
                                 <a href="/get_schedule/" class="getTime">
                                     Hämta schema
                                 </a>

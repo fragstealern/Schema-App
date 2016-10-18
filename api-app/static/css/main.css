@@ -27,6 +27,9 @@ body{
 #program{
     
 }
+.input{
+    background: rgba(0,0,0,0.5);
+}
 .getTime{
     text-align: center;
     padding: 10px;

@@ -32,6 +32,12 @@ iframe{
 #och{
     margin: 0px;
 }
+#from{
+    background: rgba(0,0,0,0.6);
+    padding: 0 0 0 10px;
+    color: #fff;
+    border-radius: 10px;
+}
 .drop-menu{
     margin: 20px auto;
     display: block;
