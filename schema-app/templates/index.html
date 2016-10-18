@@ -38,7 +38,7 @@
                             <iframe src="http://free.timeanddate.com/clock/i5er71qc/n239/tlse27/fs16/fcfff/tct/pct/tt0/tw1/tm1/td1/th1/tb4" width="159" height="38" allowTransparency="true"></iframe>
                         </div>
                         <div id="select-div">
-                            <form id="findTime" method="get" action="http://127.0.0.1:8080/">
+                            <form id="findTime" method="POST" action="http://127.0.0.1:8080/get_mashup">
                                 <select name="program" id="program" class="drop-menu">
                                     <option disabled selected value>Välj ditt program</option>
                                     <option value="TGDAB">
@@ -72,19 +72,19 @@
                                     <option value="15h">15</option>
                                     <option value="14h">14</option>
                                 </select>
-                                
+
                                 <div class="line"></div>
                                 <h5 class="inline" id="och">och</h5>
                                 <div class="line"></div>
-                                
+
                                 <input required value="" name="from" id="from" type="text" class="drop-menu input" placeholder="Skriv in din hållplats">
                                 <input id="submit" class="getTime" type="submit" value="Time Me">
-                                
+
                             </form>
                         </div>
                     </div>
                 </div>
-            
+
             </div>
         </div>
     </header>

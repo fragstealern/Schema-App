@@ -30,9 +30,15 @@ def home():
 
 
 
-@app.route('/get_mashup')
+@app.route('/get_mashup', methods=['POST'])
 def get_mashup():
-    station=","
+    program=request.form.get("program")
+    year=request.form.get("year")
+    station=request.form.get("from")
+    print (program)
+    print (year)
+    print (station)
+
     station = urllib.parse.quote_plus(station, safe='', encoding=None, errors=None)
     stationLink = "https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=" + station
     response = urllib.request.urlopen(stationLink).read()
@@ -46,7 +52,7 @@ def get_mashup():
         print ("Test")
         # FELHANTERING
 
-    
+
 
 
 
