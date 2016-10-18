@@ -10,6 +10,13 @@ body{
     margin-top: 0px;
     z-index: 2;
 }
+@media and screen(max-width:700px){
+    .traindiv{
+        transform: scale(0.5);
+        top: -20px;
+        
+    }
+}
 #time{
     background: rgba(0,0,0,0.6);
     padding: 10px 0 0 0;
