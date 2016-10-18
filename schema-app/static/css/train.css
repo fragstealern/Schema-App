@@ -32,7 +32,7 @@
 }
 @keyframes movingback{
     from{margin-left: -200%;}
-    to{margin-left: 280%;}
+    to{margin-left: 300%;}
 }
 .buswindows{
     padding-top: 10px;
