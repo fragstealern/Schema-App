@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $(".traindiv").fadeOut(100);
-    $("#from").click(function () {
+    $("#submit").click(function () {
         $(".traindiv").fadeToggle(1000);
     });
 });
