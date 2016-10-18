@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import pymysql.cursors
 import unicodedata
 import json
+import urllib.parse
 
 #  c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb
 
@@ -31,9 +32,8 @@ def home():
 
 @app.route('/get_mashup')
 def get_mashup():
-    station="Hassleholm"
+    station = urllib.parse.quote_plus(station, safe='', encoding=None, errors=None)
     stationLink = "https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=" + station
-    print(stationLink)
     response = urllib.request.urlopen(stationLink).read()
     return (response)
 
