@@ -52,7 +52,11 @@ def get_mashup():
 
     schema = get_schema(program, year)
     time_turn_back = turn_back_time(schema)
-    return time_turn_back
+
+    for i in time_turn_back:
+        print (i)
+        
+    return "y"
 
 def get_schema(program, year, lectures):
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + lectures
@@ -67,10 +71,17 @@ def turn_back_time(jsonList):
     returnThis = []
     for item in jsonList:
         parsed_json = json.loads(item)
-        schedule_date = parsed_json["StartTid"]
-        schedule_date = schedule_date.replace("15","00")
-        print (schedule_date)
+        startTime = parsed_json["StartTid"]
+        date = parsed_json["Datum"]
+        endTime = parsed_json["SlutTid"]
+        lokal = parsed_json["Lokal"]
+        moment = parsed_json["Moment"]
 
+        TagTid = startTime.replace("15","00")
+
+
+        returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment}, sort_keys=True))
+    return returnThis
 
 
 
