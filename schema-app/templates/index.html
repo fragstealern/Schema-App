@@ -100,21 +100,24 @@
                         </div>
                     </div>
                 </div>
-        <h3>Från {{ hållplats }} - Malmö C</h3>
+        <h3>Från - Malmö C</h3>
+        {{jsonList}}
         <table>
+            
             <tr>
-                <th>Ta tåget:</th>
+                <th>tåget</th>
                 <th>Lektionen börjar:</th>
                 <th>Lektion:</th>
                 <th>Sal:</th>
             </tr>
-            % for i in nanting:
+            {% for i in jsonList %}
             <tr>
-                <td>Ta tåget:</td>
-                <td>Lektionen börjar:</td>
-                <td>Lektion:</td>
-                <td>Sal:</td>
+                <td>{{i["TagTid"]}}</td>
+                <td>{{i["StartTid"]}}</td>
+                <td>{{i["Moment"]}}</td>
+                <td>{{i["Lokal"]}}</td>
             </tr>
+            {% endfor %}
         </table>
 
     </div>
