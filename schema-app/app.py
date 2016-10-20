@@ -82,7 +82,7 @@ def turn_back_time(jsonList):
         lokal = parsed_json["Lokal"]
         moment = parsed_json["Moment"]
 
-        TagTid = startTime.replace("15","00")
+        TagTid = startTime[:-2] + "00"
 
 
         returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment}, sort_keys=True))
