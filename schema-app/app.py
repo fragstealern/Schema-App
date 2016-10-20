@@ -51,8 +51,8 @@ def get_mashup():
         # FELHANTERING
 
     schema = get_schema(program, year)
-    for i in schema:
-        print (i)
+    time_turn_back = turn_back_time(schema)
+    return time_turn_back
 
 def get_schema(program, year, lectures):
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + lectures
@@ -61,6 +61,15 @@ def get_schema(program, year, lectures):
     response = response.decode("utf-8")
     parsed_json = json.loads(response)
     return parsed_json
+
+
+def turn_back_time(jsonList):
+    returnThis = []
+    for item in jsonList:
+        parsed_json = json.loads(item)
+        schedule_date = parsed_json["StartTid"]
+        schedule_date = schedule_date.replace("15","00")
+        print (schedule_date)
 
 
 
