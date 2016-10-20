@@ -88,3 +88,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+schema-app/static/.DS_Store
