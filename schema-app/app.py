@@ -8,7 +8,6 @@ import pymysql.cursors
 import unicodedata
 import json
 import urllib.parse
-import datetime
 
 #  c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb
 
@@ -67,9 +66,8 @@ def turn_back_time(jsonList):
     for item in jsonList:
         parsed_json = json.loads(item)
         schedule_date = parsed_json["StartTid"]
+        schedule_date = schedule_date.replace("15","00")
         print (schedule_date)
-
-    datetime.timedelta(minutes=15)
 
 
 
