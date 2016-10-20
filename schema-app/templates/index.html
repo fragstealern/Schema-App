@@ -35,10 +35,10 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 id="header1" class="brand-heading">School o'clock</h1>
                         <div id="time">
-                            <iframe src="http://free.timeanddate.com/clock/i5er71qc/n239/tlse27/fs16/fcfff/tct/pct/tt0/tw1/tm1/td1/th1/tb4" width="159" height="38" allowTransparency="true"></iframe>
+                            <iframe id="timebox" src="http://free.timeanddate.com/clock/n239/tlse27/fs16/fcfff/tct/tt0/tw1/tm1/tb4/t1c/t1" width="159" height="38" allowTransparency="true"></iframe>
                         </div>
                         <div id="select-div">
-                            <form id="findTime" method="POST" action="http://127.0.0.1:8080/get_mashup">
+                            <form id="findTime" method="POST" action="http://127.0.0.1:8080/#tiden">
                                 <select name="program" id="program" class="drop-menu">
                                     <option disabled selected value>Välj ditt program</option>
                                     <option value="TGDAB">
@@ -72,25 +72,55 @@
                                     <option value="15h">15</option>
                                     <option value="14h">14</option>
                                 </select>
+                                <select name="lectures" id="lectures" class="drop-menu">
+                                    <option disabled selected value>Antal Moment</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
 
                                 <div class="line"></div>
                                 <h5 class="inline" id="och">och</h5>
                                 <div class="line"></div>
 
                                 <input required value="" name="from" id="from" type="text" class="drop-menu input" placeholder="Skriv in din hållplats">
-                                <input id="submit" class="getTime" type="submit" value="Time Me">
-
+                                <input id="submit" class="getTime" type="submit" value="Time Me" href="#tiden">
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
+    <div id="tiden">
+        <h3>Från {{ hållplats }} - Malmö C</h3>
+        <table>
+            <tr>
+                <th>Ta tåget:</th>
+                <th>Lektionen börjar:</th>
+                <th>Lektion:</th>
+                <th>Sal:</th>
+            </tr>
+            % for i in nanting:
+            <tr>
+                <td>Ta tåget:</td>
+                <td>Lektionen börjar:</td>
+                <td>Lektion:</td>
+                <td>Sal:</td>
+            </tr>
+        </table>
+        
+    </div>
     <footer>
-        <button id="show-bus" class="knappar">Bussen</button>
+        <!--button id="show-bus" class="knappar">Bussen</button-->
         <p>Philip | Sara | Sabina | Oscar</p>
-        <button id="show-train" class="knappar">Tåget</button>
+        <!--button id="show-train" class="knappar">Tåget</button-->
     </footer>
 {% endblock %}

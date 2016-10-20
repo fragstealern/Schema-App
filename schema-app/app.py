@@ -35,6 +35,7 @@ def get_mashup():
     program=request.form.get("program")
     year=request.form.get("year")
     station=request.form.get("from")
+    days=request.form.get("days")
 
     station = urllib.parse.quote_plus(station, safe='', encoding=None, errors=None)
     stationLink = "https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=" + station
@@ -54,8 +55,8 @@ def get_mashup():
     for item in schema:
         print (item)
 
-def get_schema(program, year):
-    schema = "http://localhost:8082/get_schedule/" + program + year
+def get_schema(program, year, lectures):
+    schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + lectures
     print(schema)
     response = urllib.request.urlopen(schema).read()
     response = response.decode("utf-8")

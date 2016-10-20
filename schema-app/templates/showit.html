@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block title %}
+  Dina tider
+{% endblock %}
+
+{% block content %}
+<header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 id="header1" class="brand-heading">School o'clock</h1>
+                        <div id="time">
+                            <iframe src="http://free.timeanddate.com/clock/i5er71qc/n239/tlse27/fs16/fcfff/tct/pct/tt0/tw1/tm1/td1/th1/tb4" width="159" height="38" allowTransparency="true"></iframe>
+                        </div>
+                        <div id="select-div">
+                            <form id="findTime" method="POST" action="http://127.0.0.1:8080/get_mashup">
+                                <select name="program" id="program" class="drop-menu">
+                                    <option disabled selected value>Välj ditt program</option>
+                                    <option value="TGDAB">
+                                        Datavetenskap och applikationsutveckling (TGDAB)
+                                    </option>
+                                    <option value="TGIAA">
+                                        Informationsarkitekt (TGIAA)
+                                    </option>
+                                    <option value="TGITA">
+                                        IT och ekonomi (TGITA)
+                                    </option>
+                                    <option value="TGMPP">
+                                        Medieproduktion och processdesign (TGMPP)
+                                    </option>
+                                    <option value="SGPRM">
+                                        Produktionsledare: Media (SGPRM)
+                                    </option>
+                                    <option value="TGSPA">
+                                        Spelutveckling (TGSPA)
+                                    </option>
+                                    <option value="TGSYA">
+                                        Systemutvecklare (TGSYA)
+                                    </option>
+                                    <option value="TGSYS">
+                                        Systemutvecklare (TGSYS)
+                                    </option>
+                                </select>
+                                <select name="year" id="year" class="drop-menu">
+                                    <option disabled selected value>Årskull</option>
+                                    <option value="16h">16</option>
+                                    <option value="15h">15</option>
+                                    <option value="14h">14</option>
+                                </select>
+
+                                <div class="line"></div>
+                                <h5 class="inline" id="och">och</h5>
+                                <div class="line"></div>
+
+                                <input required value="" name="from" id="from" type="text" class="drop-menu input" placeholder="Skriv in din hållplats">
+                                <input id="submit" class="getTime" type="submit" value="Time Me">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </header>
+    <footer>
+        <button id="show-bus" class="knappar">Bussen</button>
+        <p>Philip | Sara | Sabina | Oscar</p>
+        <button id="show-train" class="knappar">Tåget</button>
+    </footer>
+{% endblock %}
