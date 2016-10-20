@@ -1,7 +1,7 @@
 
 # *-* coding:utf-8*-*
 # Laddar in alla ramverk.
-from flask import Flask, render_template, redirect, url_for, request, flash, Response, jsonify
+from flask import Flask, render_template, redirect, url_for, request, flash, Response, jsonify, g
 import urllib.request
 from bs4 import BeautifulSoup
 import pymysql.cursors
@@ -72,10 +72,7 @@ def get_schedule(course):
         jsonList=limit(jsonList, limitAmount)
 
 
-    resp = Response(response=jsonList,
-    status=200, \
-    mimetype="application/json")
-    return(resp)
+    return jsonify(jsonList)
 
 def limit(jsonList, limitAmount):
     """

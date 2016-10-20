@@ -50,17 +50,15 @@ def get_mashup():
         # FELHANTERING
 
     schema = get_schema(program, year)
-
-    for item in schema:
-        print (item)
+    for i in schema:
+        print (i)
 
 def get_schema(program, year):
     schema = "http://localhost:8082/get_schedule/" + program + year
-    print(schema)
     response = urllib.request.urlopen(schema).read()
     response = response.decode("utf-8")
-    return response
-
+    parsed_json = json.loads(response)
+    return parsed_json
 
 
 
