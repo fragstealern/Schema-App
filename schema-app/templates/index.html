@@ -102,7 +102,7 @@
                 </div>
         <h3>Från - Malmö C</h3>
         <table>
-            
+
             <tr>
                 <th>Tåget avgår:</th>
                 <th>Lektionen börjar:</th>
@@ -112,9 +112,9 @@
             {% for i in jsonList %}
             <tr>
                 <td>{{i["TagTid"]}}</td>
-                <td>{{i[1]}}</td>
-                <td>{{i[2]}}</td>
-                <td>{{i[3]}}</td>
+                <td>{{i["StartTid"]}}</td>
+                <td>{{i["Moment"]}}</td>
+                <td>{{i["Lokal"]}}</td>
             </tr>
             {% endfor %}
         </table>
