@@ -71,6 +71,7 @@ def get_schedule(course):
     if limitAmount != None:
         jsonList=limit(jsonList, limitAmount)
 
+
     return jsonify(jsonList)
 
 def limit(jsonList, limitAmount):
