@@ -72,7 +72,10 @@ def get_schedule(course):
         jsonList=limit(jsonList, limitAmount)
 
 
-    return flask.jsonify(**jsonList)
+    resp = Response(response=jsonList,
+    status=200, \
+    mimetype="application/json")
+    return(resp)
 
 def limit(jsonList, limitAmount):
     """
