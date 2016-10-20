@@ -53,10 +53,8 @@ def get_mashup():
     schema = get_schema(program, year)
     time_turn_back = turn_back_time(schema)
 
-    for i in time_turn_back:
-        print (i)
-        
-    return "y"
+
+    return render_template("index.html", jsonList = time_turn_back)
 
 def get_schema(program, year, lectures):
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + lectures
