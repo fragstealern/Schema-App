@@ -55,7 +55,7 @@ def get_mashup():
 
     for i in time_turn_back:
         print(i)
-    return render_template("index.html", jsonList = time_turn_back)
+    return render_template("index.html", jsonList = jsonify(time_turn_back))
 
 def get_schema(program, year, limitDays):
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + limitDays
@@ -83,7 +83,9 @@ def turn_back_time(jsonList):
 
 
 
-
+"""
+    Ändra så att TagTid är den tiden man ska gå på tågetTime
+"""
 
 
 
