@@ -7,8 +7,8 @@
     margin: 0px 0px 10px 0px;
 }
 @keyframes moving{
-    from{margin-left: 280%;}
-    to{margin-left: -200%;}
+    from{margin-left: 200%;}
+    to{margin-left: -150%;}
 }
 .windows{
     padding: 20px 40px;

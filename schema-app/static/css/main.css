@@ -9,11 +9,6 @@ header{
     margin-bottom: 200px;
     font-family: 'Raleway', sans-serif;
 }
-.traindiv{
-    position: fixed;
-    margin-top: 0px;
-    z-index: 2;
-}
 @media screen and (max-width:750px){
     .traindiv{
         transform: scale(0.5);
@@ -114,8 +109,8 @@ iframe{
 }
 
 #tiden{
-    min-height: 1000px;
-    padding: 200px;
+    min-height: 800px;
+    padding-top: 20px;
 }
 
 
