@@ -8,6 +8,7 @@ import pymysql.cursors
 import unicodedata
 import json
 import urllib.parse
+import datetime
 
 #  c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb
 
@@ -50,8 +51,8 @@ def get_mashup():
         # FELHANTERING
 
     schema = get_schema(program, year)
-    for i in schema:
-        print (i)
+    time_turn_back = turn_back_time(schema)
+    return time_turn_back
 
 def get_schema(program, year):
     schema = "http://localhost:8082/get_schedule/" + program + year
@@ -59,6 +60,16 @@ def get_schema(program, year):
     response = response.decode("utf-8")
     parsed_json = json.loads(response)
     return parsed_json
+
+
+def turn_back_time(jsonList):
+    returnThis = []
+    for item in jsonList:
+        parsed_json = json.loads(item)
+        schedule_date = parsed_json["StartTid"]
+        print (schedule_date)
+
+    datetime.timedelta(minutes=15)
 
 
 
