@@ -103,14 +103,17 @@
         <h3>Från - Malmö C</h3>
         <table>
             <tr>
+                <th>Datum:</th>
                 <th>Tåget avgår:</th>
-                <th>Tåget är framme:</th>
+                <th>Tåget ankommer:</th>
                 <th>Lektionen börjar:</th>
+                
                 <th>Moment:</th>
                 <th>Sal:</th>
             </tr>
             {% for i in jsonList %}
             <tr>
+                <td>{{i["Datum"]}}</td>
                 <td>{{i["TagTid"]}}</td>
                 <td>{{i["AnkomstTid"]}}</td>
                 <td>{{i["StartTid"]}}</td>
