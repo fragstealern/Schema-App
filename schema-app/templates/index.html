@@ -78,11 +78,6 @@
         </div>
     </header>
     <div id="tiden">
-        {% if scroll %}
-        <script>
-            document.getElementById('{{ scroll }}').scrollIntoView();
-        </script>
-        {% endif %}
         <div class="traindiv">
             <div class="trainbody">
                 <div class="windows">
@@ -141,4 +136,13 @@
         <p>Philip | Sara | Sabina | Oscar</p>
         <!--button id="show-train" class="knappar">Tåget</button-->
     </footer>
+
+
+    {%if scroll%}
+    <script>
+    document.getElementById('{{ scroll }}').scrollIntoView();
+      // or
+    document.location.hash = '#' + '{{ scroll }}';
+    </script>
+    {%endif%}
 {% endblock %}
