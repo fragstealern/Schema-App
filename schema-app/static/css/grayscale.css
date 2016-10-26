@@ -19,7 +19,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
-.intro, .intro-body, .container, .row{
+.intro-body, .container, .row{
     background: none;
 }
 h1,

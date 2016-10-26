@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-<header class="intro" onload="startTime()">
+<header id="searchwindow" class="intro" onload="startTime()">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
@@ -102,9 +102,9 @@
                 </div>
         <h3>Från - Malmö C</h3>
         <table>
-
             <tr>
                 <th>Tåget avgår:</th>
+                <th>Tåget är framme:</th>
                 <th>Lektionen börjar:</th>
                 <th>Moment:</th>
                 <th>Sal:</th>
@@ -112,6 +112,7 @@
             {% for i in jsonList %}
             <tr>
                 <td>{{i["TagTid"]}}</td>
+                <td>{{i["AnkomstTid"]}}</td>
                 <td>{{i["StartTid"]}}</td>
                 <td>{{i["Moment"]}}</td>
                 <td>{{i["Lokal"]}}</td>

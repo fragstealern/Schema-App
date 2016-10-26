@@ -40,28 +40,11 @@
   <!-- SCRIPTS -->
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/grayscale.js"></script>
+    <script type="text/javascript" src="../static/js/grayscale.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.xgallerify.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/javascript.js')}}"></script>
     <script type="text/javascript" src="../static/js/my-jquery.js"></script>
-    <script type="text/javascript">
-var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-
-function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate();
-var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
-if(nmin<=9) nmin="0"+nmin
-if(nsec<=9) nsec="0"+nsec;
-
-document.getElementById('timeDisplay').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+" "+nhour+":"+nmin+":"+nsec+"";
-}
-
-window.onload=function(){
-GetClock();
-setInterval(GetClock,1000);
-}
-</script>
 </body>
 </html>
