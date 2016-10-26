@@ -112,7 +112,12 @@ iframe{
     min-height: 800px;
     padding: 20px 20px 50px 20px;
 }
-
+tr, td{
+    text-align: center;
+}
+#tagtid{
+    width: 20px;
+}
 
 .knappar{
     display: inline-block;
