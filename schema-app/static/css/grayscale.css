@@ -19,7 +19,7 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
-.intro-body, .container, .row{
+.intro, .intro-body, .container, .row{
     background: none;
 }
 h1,
@@ -51,7 +51,7 @@ p {
     line-height: 1.6;
   }
 }
-#submit {
+#next {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -61,8 +61,8 @@ p {
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-#submit:hover,
-#submit:focus {
+#next:hover,
+#next:focus {
     text-decoration: none;
     color: #1d9b6c;
 }

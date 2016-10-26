@@ -1,6 +1,4 @@
-$(document).ready(function () {
-    $("#tiden").css({"position": "fixed", "top": "0"});
-});
+
 $(document).ready(function () {
     'use strict';
     $("#show-train").fadeIn(2000);
@@ -10,5 +8,21 @@ $(document).ready(function () {
     });
     $("#show-bus").click(function () {
         $(".busdiv").fadeToggle(500);
+    });
+});
+$(".button-collapse").sideNav();
+
+$(function () {
+    $('#next').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1800);
+                return false;
+            }
+        }
     });
 });
