@@ -104,7 +104,7 @@ def get_train_time(jsonList, StartLocation):
         moment = parsed_json["Moment"]
         TagTid = parsed_json["TagTid"]
 
-        trainTimes = "https://api.resrobot.se/v2/trip?originId=" + StartLocation + "&destId=740098548&date=" + date + "&time=" + TagTid + "&key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&searchForArrival=1&operators=300"
+        trainTimes = "https://api.resrobot.se/v2/trip?originId=" + StartLocation + "&destId=740098548&date=" + date + "&time=" + TagTid + "&key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&searchForArrival=1&products=144"
         response = urllib.request.urlopen(trainTimes).read()
         response = response.decode("utf-8")
         parsed_json = json.loads(response)
