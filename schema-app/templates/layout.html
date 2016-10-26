@@ -7,7 +7,7 @@
     <link href="../static/css/main.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='vender/bootstrap/css/bootstrap.css')}}">
     <!-- Custom Fonts -->
     <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -33,17 +33,48 @@
   </div>
   <!-- INSERT FOOTER HERE -->
 
-
+  <div id="poplogin" class="modal">
+  <div class="modal-content">
+    <h4 class="center">Login</h4>
+    <div class="row center">
+      <div class="col s4 offset-s4">
+        <div class="row">
+          <form class="col s12" action="/login_user" method="POST">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate" name="email" required>
+              <label for="email">
+                Email
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="pwd" type="password" class="validate" name="pwd" required>
+              <label for="pwd">
+                Password
+              </label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Logga in
+            <i class="material-icons right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
 
   <!-- SCRIPTS -->
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/grayscale.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.xgallerify.js')}}"></script>
+
     <script type="text/javascript" src="{{url_for('static', filename='js/javascript.js')}}"></script>
-    <script type="text/javascript" src="../static/js/my-jquery.js"></script><!--
+    <script type="text/javascript" src="../static/js/my-jquery.js"></script>
+    <!--
     <script type="text/javascript" src="../static/js/easing.js"></script>
     <script type="text/javascript" src="../static/js/grayscale.js"></script-->
 </body>
