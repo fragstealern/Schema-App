@@ -105,7 +105,7 @@ iframe{
     height: 2px;
     width: 20%;
     background: rgba(0,0,0,0.8);
-    margin: 8px 0px;
+    margin: 8px 5px;
 }
 .white{
     background: #aaa;
@@ -126,4 +126,9 @@ tr, td{
 
 .knappar{
     display: inline-block;
+}
+#error{
+    margin-top: 10px;
+    margin-bottom: -20px;
+    color: #f00;
 }

@@ -39,6 +39,9 @@ h6 {
 h1{
     color: #222;
 }
+h6{
+    color: #f00;
+}
 p {
     margin: 0 0 25px;
     font-size: 18px;
@@ -90,7 +93,6 @@ p {
     height: 100%;
     padding: 50px 0px 100px 0px;
     text-align: center;
-    color: white;
 }
 .intro .intro-body .brand-heading {
     font-size: 40px;
