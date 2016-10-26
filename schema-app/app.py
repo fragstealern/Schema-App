@@ -66,7 +66,7 @@ def get_mashup():
         # ---------------------------------------------------
 
 
-    return render_template("index.html", jsonList = testList, startLocationName = startLocationName)
+    return render_template("index.html", jsonList = testList, startLocationName = startLocationName, scroll='tiden')
 
 def get_schema(program, year, limitDays):
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + limitDays

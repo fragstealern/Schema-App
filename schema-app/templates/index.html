@@ -77,30 +77,35 @@
         </div>
     </header>
     <div id="tiden">
+        {% if scroll %}
+        <script>
+            document.getElementById('{{ scroll }}').scrollIntoView();
+        </script>
+        {% endif %}
         <div class="traindiv">
-                    <div class="trainbody">
-                        <div class="windows">
-                            <div class="window"></div>
-                            <div class="window"></div>
-                            <div class="window"></div>
-                            <div class="window"></div>
-                            <div class="window"></div>
-                        </div>
-                    </div>
-                    <div class="busdiv">
-                        <div class="busbody">
-                            <div class="buswindows">
-                                <div class="big buswindow"></div>
-                                <div class="small buswindow"></div>
-                                <div class="small buswindow"></div>
-                                <div class="big buswindow"></div>
-                                <div class="small buswindow"></div>
-                                <div class="small buswindow"></div>
-                                <div class="small buswindow"></div>
-                            </div>
-                        </div>
+            <div class="trainbody">
+                <div class="windows">
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                </div>
+            </div>
+            <div class="busdiv">
+                <div class="busbody">
+                    <div class="buswindows">
+                        <div class="big buswindow"></div>
+                        <div class="small buswindow"></div>
+                        <div class="small buswindow"></div>
+                        <div class="big buswindow"></div>
+                        <div class="small buswindow"></div>
+                        <div class="small buswindow"></div>
+                        <div class="small buswindow"></div>
                     </div>
                 </div>
+            </div>
+        </div>
         <h3>{{startLocationName}} </h3>
         <div class="white line"></div>
         <h5 class="white-text inline">till</h5>

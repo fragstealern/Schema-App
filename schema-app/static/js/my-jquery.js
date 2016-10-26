@@ -1,28 +1,20 @@
-
+$(document).ready(function () {
+    $("#findTime").on('submit', function () {
+        $('html, body').animate({
+            scrollTop: $("#tiden").offset().top
+        }, 2000);
+        return false;
+    });
+});
+    
 $(document).ready(function () {
     'use strict';
-    $("#show-train").fadeIn(2000);
-    $("#show-bus").fadeIn(2000);
+    $("#show-train").fadeIn(5000);
+    $("#show-bus").fadeIn(5000);
     $("#show-train").click(function () {
         $(".trainbody").fadeToggle(500);
     });
     $("#show-bus").click(function () {
         $(".busdiv").fadeToggle(500);
-    });
-});
-$(".button-collapse").sideNav();
-
-$(function () {
-    $('#next').click(function () {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1800);
-                return false;
-            }
-        }
     });
 });
