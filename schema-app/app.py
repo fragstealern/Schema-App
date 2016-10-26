@@ -111,7 +111,7 @@ def get_train_time(jsonList, StartLocation):
         arrival = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Destination"]["time"]
         departure = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Origin"]["time"]
 
-        returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment,'AnkomstTid': arrival[:-3], 'AvgangsTid': departure}, sort_keys=True))
+        returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment,'AnkomstTid': arrival[:-3], 'AvgangsTid': departure[:-3]}, sort_keys=True))
 
     return returnThis
 

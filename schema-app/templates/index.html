@@ -107,14 +107,14 @@
                 <th id="tagtid">Tåget avgår:</th>
                 <th id="ankomst">Tåget ankommer:</th>
                 <th>Lektionen börjar:</th>
-                
+
                 <th>Moment:</th>
                 <th>Sal:</th>
             </tr>
             {% for i in jsonList %}
             <tr>
                 <td>{{i["Datum"]}}</td>
-                <td>{{i["TagTid"]}}</td>
+                <td>{{i["AvgangsTid"]}}</td>
                 <td>{{i["AnkomstTid"]}}</td>
                 <td>{{i["StartTid"]}}</td>
                 <td>{{i["Moment"]}}</td>
