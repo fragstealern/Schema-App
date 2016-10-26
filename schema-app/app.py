@@ -44,7 +44,8 @@ def get_mashup():
     response = response.decode("utf-8")
 
     parsed_json = json.loads(response)
-    response=parsed_json["StopLocation"][0]["id"]
+    StartLocation=parsed_json["StopLocation"][0]["id"]
+
 
     if response=="":
         print ("NU BLEV DET FEL HÖRREDU RAD 49")
@@ -52,12 +53,14 @@ def get_mashup():
 
     schema = get_schema(program, year, limitDays)
     time_turn_back = turn_back_time(schema)
+    trainTimes = get_train_time(time_turn_back, StartLocation)
+
+
 
 
     testList = []
-    for i in time_turn_back:
+    for i in trainTimes:
         parsed_json = json.loads(i)
-        print(parsed_json["Datum"])
         testList.append(parsed_json)
         # ---------------------------------------------------
 
@@ -87,6 +90,31 @@ def turn_back_time(jsonList):
 
         returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment}, sort_keys=True))
     return returnThis
+
+
+def get_train_time(jsonList, StartLocation):
+    returnThis = []
+    for item in jsonList:
+        parsed_json = json.loads(item)
+        startTime = parsed_json["StartTid"]
+        date = parsed_json["Datum"]
+        endTime = parsed_json["SlutTid"]
+        lokal = parsed_json["Lokal"]
+        moment = parsed_json["Moment"]
+        TagTid = parsed_json["TagTid"]
+
+        trainTimes = "https://api.resrobot.se/v2/trip?originId=" + StartLocation + "&destId=740098548&date=" + date + "&time=" + TagTid + "&key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&searchForArrival=1&operators=300"
+        response = urllib.request.urlopen(trainTimes).read()
+        response = response.decode("utf-8")
+        parsed_json = json.loads(response)
+        arrival = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Destination"]["time"]
+        departure = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Origin"]["time"]
+
+        returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment,'AnkomstTid': arrival, 'AvgangsTid': departure}, sort_keys=True))
+
+    return returnThis
+
+
 
 
 
