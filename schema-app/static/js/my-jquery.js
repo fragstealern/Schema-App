@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#findTime").on('submit', function () {
         $('html, body').animate({
             scrollTop: $("#tiden").offset().top
-        }, 2000);
+        }, 1000);
         return false;
     });
 });
