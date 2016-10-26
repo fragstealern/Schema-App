@@ -45,6 +45,7 @@ def get_mashup():
 
     parsed_json = json.loads(response)
     StartLocation=parsed_json["StopLocation"][0]["id"]
+    startLocationName = parsed_json["StopLocation"][0]["name"]
 
 
     if response=="":
@@ -65,7 +66,7 @@ def get_mashup():
         # ---------------------------------------------------
 
 
-    return render_template("index.html", jsonList = testList)
+    return render_template("index.html", jsonList = testList, startLocationName = startLocationName)
 
 def get_schema(program, year, limitDays):
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + limitDays
@@ -110,7 +111,7 @@ def get_train_time(jsonList, StartLocation):
         arrival = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Destination"]["time"]
         departure = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Origin"]["time"]
 
-        returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment,'AnkomstTid': arrival, 'AvgangsTid': departure}, sort_keys=True))
+        returnThis.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime,'TagTid': TagTid, 'Lokal': lokal, 'Moment': moment,'AnkomstTid': arrival[:-3], 'AvgangsTid': departure}, sort_keys=True))
 
     return returnThis
 
