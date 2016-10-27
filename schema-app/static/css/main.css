@@ -129,7 +129,11 @@ tr, td, th{
 #tagtid{
     width: 20px;
 }
-
+#back{
+    display: block;
+    border-style: solid;
+    border-radius: 50px;
+}
 .knappar{
     display: inline-block;
 }
