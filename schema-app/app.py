@@ -43,17 +43,22 @@ def login():
     
 @app.route('/get_mashup', methods=['POST'])
 def get_mashup():
+    '''
+    Lägger in all information som vi hämtat från Resrobot och vårt egna API
+    '''
+
+    # Informationen som användaren valt läggs in
     program=request.form.get("program")
     year=request.form.get("year")
     station=request.form.get("from")
     days=request.form.get("days")
     limitDays = request.form.get("lectures")
 
+    #Hämtar stationsnamn och ID från Resrobot och lägger in
     station = urllib.parse.quote_plus(station, safe='', encoding=None, errors=None)
     stationLink = "https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=" + station
     response = urllib.request.urlopen(stationLink).read()
     response = response.decode("utf-8")
-
     parsed_json = json.loads(response)
     StartLocation=parsed_json["StopLocation"][0]["id"]
     startLocationName = parsed_json["StopLocation"][0]["name"]
@@ -63,8 +68,13 @@ def get_mashup():
         print ("NU BLEV DET FEL HÖRREDU RAD 49")
         # FELHANTERING
 
+    #Hämtar schemat
     schema = get_schema(program, year, limitDays)
+
+    #Tar tillbaka tiden 15 minuter genom en annan funktion
     time_turn_back = turn_back_time(schema)
+
+    #Slår ihop schemat med tågtabellen
     trainTimes = get_train_time(time_turn_back, StartLocation)
     if trainTimes == "Hållplatsen finns inte, försök igen!":
         return render_template("index.html", error = "Hållplatsen finns inte, försök igen!")
@@ -72,7 +82,7 @@ def get_mashup():
 
 
 
-
+    #Ingen aning, men det funkar :D
     testList = []
     for i in trainTimes:
         parsed_json = json.loads(i)
@@ -83,6 +93,10 @@ def get_mashup():
     return render_template("index.html", jsonList = testList, startLocationName = startLocationName, scroll='tiden')
 
 def get_schema(program, year, limitDays):
+    '''
+    Hämtar schemat från vårt API
+    '''
+
     schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + limitDays
     response = urllib.request.urlopen(schema).read()
     response = response.decode("utf-8")
@@ -91,6 +105,10 @@ def get_schema(program, year, limitDays):
 
 
 def turn_back_time(jsonList):
+    '''
+    Skruvar tillbaka tiden med 15 minuter
+    '''
+
     returnThis = []
     for item in jsonList:
         parsed_json = json.loads(item)
@@ -108,6 +126,9 @@ def turn_back_time(jsonList):
 
 
 def get_train_time(jsonList, StartLocation):
+    '''
+    Matchar samman tågtiden med schemat som är bakåtskruvat
+    '''
     returnThis = []
     for item in jsonList:
         parsed_json = json.loads(item)
@@ -118,6 +139,7 @@ def get_train_time(jsonList, StartLocation):
         moment = parsed_json["Moment"]
         TagTid = parsed_json["TagTid"]
 
+        #Hämtar tågtabellen
         trainTimes = "https://api.resrobot.se/v2/trip?originId=" + StartLocation + "&destId=740098548&date=" + date + "&time=" + TagTid + "&key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&searchForArrival=1&products=144"
         try:
             response = urllib.request.urlopen(trainTimes).read()
