@@ -9,6 +9,9 @@ header{
     margin-bottom: 200px;
     font-family: 'Raleway', sans-serif;
 }
+#google-btn{
+    margin-left: 800px;
+}
 @media screen and (max-width:750px){
     .traindiv{
         transform: scale(0.5);
@@ -117,7 +120,7 @@ iframe{
     min-height: 800px;
     padding: 20px 20px 50px 20px;
 }
-tr, td{
+tr, td, th{
     text-align: center;
 }
 #tagtid{

@@ -9,9 +9,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                        <h1 id="header1" class="brand-heading">School o'clock</h1>
-                        <div id="select-div">
+                    <div id="google-btn" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                    <h1 id="header1" class="brand-heading">School o'clock</h1>
+                    <div id="select-div">
                             <form id="findTime" method="POST" action="http://localhost:8080/get_mashup">
                                 <select name="program" id="program" class="drop-menu">
                                     <option disabled selected value>Välj ditt program</option>
@@ -71,12 +71,12 @@
                                 <input type="submit" value="Time Me" id="next" class="getTime">
                             </form>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </header>
-    <div id="tiden">
+    </div>
+</header>
+<div id="tiden">
         <div class="traindiv">
             <div class="trainbody">
                 <div class="windows">
@@ -130,19 +130,19 @@
         <a class="modal-trigger" href="#modal1">HEJSAN</a>
     </div>
 
-    <footer>
-        <p>Philip | Sara | Sabina | Oscar</p>
-    </footer>
+<footer>
+    <p>Philip | Sara | Sabina | Oscar</p>
+</footer>
 
 
-    {%if scroll%}
-    <script>
-        //denna js funktionen gör så att sidan automatiskt scrollar ner:
-        document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth"});
-        //om inte den funkar så gör denna det:
-        document.location.hash = '#' + '{{ scroll }}';
-    </script>
-    {%endif%}
+{%if scroll%}
+<script>
+    //denna js funktionen gör så att sidan automatiskt scrollar ner:
+    document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth"});
+    //om inte den funkar så gör denna det:
+    document.location.hash = '#' + '{{ scroll }}';
+</script>
+{%endif%}
 
     <div id="modal1" class="modal">
     <div class="modal-content">
