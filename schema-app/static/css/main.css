@@ -12,6 +12,9 @@ header{
 #google-btn{
     margin-left: 800px;
 }
+.traindiv{
+    transform: scale(0.8)
+}
 @media screen and (max-width:750px){
     .traindiv{
         transform: scale(0.5);
