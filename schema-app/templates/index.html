@@ -127,9 +127,9 @@
             </tr>
             {% endfor %}
         </table>
-
+        <a class="modal-trigger" href="#modal1">HEJSAN</a>
     </div>
-    <a class="getTime modal-trigger" href="#poplogin">
+
     <footer>
         <p>Philip | Sara | Sabina | Oscar</p>
     </footer>
@@ -143,4 +143,13 @@
         document.location.hash = '#' + '{{ scroll }}';
     </script>
     {%endif%}
+
+    <div id="modal1" class="modal">
+    <div class="modal-content">
+      <p> Vill du lägga till informationen i din kalender?</p>
+      <a href="/add_to_calende">JA</a>
+      <a href="/index">NEJ</a>
+    </div>
+    </div>
+
 {% endblock %}
