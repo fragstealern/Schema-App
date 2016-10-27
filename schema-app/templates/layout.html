@@ -6,6 +6,10 @@
     <link rel="shortcut icon" href="{{url_for('static', filename='bilder/F_ICON.png')}}">
     <link href="../static/css/main.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE META -->
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Bootstrap Core CSS -->
     <link href="{{url_for('static', filename='vender/bootstrap/css/bootstrap.css')}}">
     <!-- Custom Fonts -->
@@ -17,63 +21,57 @@
     <link href="../static/css/grayscale.min.css" rel="stylesheet">
     <link href="../static/css/grayscale.css" rel="stylesheet">
     <link href="../static/css/train.css" rel="stylesheet" type="text/css">
-  <title>
-    Schema -
-    {% block title %}
-    {% endblock %}
-  </title>
+    <title>
+        Schema -
+        {% block title %}
+        {% endblock %}
+    </title>
 </head>
 <body>
 
-  <!-- INSERT NAV HERE -->
+    <!-- INSERT NAV HERE -->
 
-  <div id="container">
-    {% block content %}
-    {% endblock %}
-  </div>
-  <!-- INSERT FOOTER HERE -->
-
-  <div id="poplogin" class="modal">
-  <div class="modal-content">
-    <h4 class="center">Login</h4>
-    <div class="row center">
-      <div class="col s4 offset-s4">
-        <div class="row">
-          <form class="col s12" action="/login_user" method="POST">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate" name="email" required>
-              <label for="email">
-                Email
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="pwd" type="password" class="validate" name="pwd" required>
-              <label for="pwd">
-                Password
-              </label>
-            </div>
-          </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Logga in
-            <i class="material-icons right"></i>
-          </button>
-        </form>
-      </div>
+    <div id="container">
+        {% block content %}
+        {% endblock %}
     </div>
-  </div>
-  </div>
+    <!-- INSERT FOOTER HERE -->
 
+    <div id="poplogin" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Login</h4>
+        <div class="row center">
+        <div class="col s4 offset-s4">
+            <div class="row">
+                <form class="col s12" action="/login_user" method="POST">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" name="email" required>
+                        <label for="email">
+                            Email
+                        </label>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="pwd" type="password" class="validate" name="pwd" required>
+                    <label for="pwd">
+                        Password
+                    </label>
+                </div>
+            </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Logga in
+                        <i class="material-icons right"></i>
+                    </button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
-  <!-- SCRIPTS -->
-
+<!-- SCRIPTS -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
     <script type="text/javascript" src="../static/js/my-jquery.js"></script>
-
-
 
 </body>
 </html>

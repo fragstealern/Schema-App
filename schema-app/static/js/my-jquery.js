@@ -1,7 +1,7 @@
   $(document).ready(function () {
     'use strict';
-    $("#show-train").fadeIn(5000);
-    $("#show-bus").fadeIn(5000);
+    $("#show-train").fadeIn(2000);
+    $("#show-bus").fadeIn(2000);
     $("#show-train").click(function () {
         $(".trainbody").fadeToggle(500);
     });

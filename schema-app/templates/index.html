@@ -5,15 +5,14 @@
 
 {% block content %}
 <header id="searchwindow" class="intro" onload="startTime()">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                         <h1 id="header1" class="brand-heading">School o'clock</h1>
                         <div id="select-div">
-
                             <form id="findTime" method="POST" action="http://localhost:8080/get_mashup">
-
                                 <select name="program" id="program" class="drop-menu">
                                     <option disabled selected value>Välj ditt program</option>
                                     <option value="TGDAB">
@@ -132,17 +131,16 @@
     </div>
     <a class="getTime modal-trigger" href="#poplogin">
     <footer>
-        <!--button id="show-bus" class="knappar">Bussen</button-->
         <p>Philip | Sara | Sabina | Oscar</p>
-        <!--button id="show-train" class="knappar">Tåget</button-->
     </footer>
 
 
     {%if scroll%}
     <script>
-    document.getElementById('{{ scroll }}').scrollIntoView();
-      // or
-    document.location.hash = '#' + '{{ scroll }}';
+        //denna js funktionen gör så att sidan automatiskt scrollar ner:
+        document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth"});
+        //om inte den funkar så gör denna det:
+        document.location.hash = '#' + '{{ scroll }}';
     </script>
     {%endif%}
 {% endblock %}
