@@ -1,6 +1,7 @@
 
 # *-* coding:utf-8*-*
 # Laddar in alla ramverk.
+from __future__ import print_function
 from flask import Flask, render_template, redirect, url_for, request, flash, Response, jsonify
 import urllib.request
 from bs4 import BeautifulSoup
@@ -8,6 +9,8 @@ import pymysql.cursors
 import unicodedata
 import json
 import urllib.parse
+
+
 
 #  c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb
 
@@ -30,17 +33,42 @@ def home():
 
 @app.route("/login")
 def login():
-    decorator = appengine.OAuth2DecoratorFromClientSecrets(
-    'client_secrets.json',
-    scope='https://www.googleapis.com/auth/calendar')
+    import googleapiclient
+    from apiclient.discovery import build
+    from httplib2 import Http
+    from oauth2client import file, client, tools
 
-    class MainHandler(webapp.RequestHandler):
-        @decorator.oauth_required
-        def get(self):
-            http = decorator.http()
-            request = service.events().list(calendarId='primary')
+    try:
+        import argparse
+        flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+    except ImportError:
+        flags = None
 
-    
+    SCOPES = 'https://www.googleapis.com/auth/calendar'
+    store = file.Storage('storage.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flow = client.flow_from_clientsecrets('client_secret.json', SCOPES)
+        print(flow)
+        creds = tools.run_flow(flow, store, flags) \
+                if flags else tools.run(flow, store)
+    CAL = build('calendar', 'v3', http=creds.authorize(Http()))
+
+    GMT_OFF = '+06:00'      # PDT/MST/GMT-7
+    EVENT = {
+        'summary': 'Dinner with friends',
+        'start':  {'dateTime': '2016-10-28T19:00:00%s' % GMT_OFF},
+        'end':    {'dateTime': '2016-10-28T22:00:00%s' % GMT_OFF},
+    }
+
+    e = CAL.events().insert(calendarId='primary',
+            sendNotifications=True, body=EVENT).execute()
+
+    print('''*** %r event added:
+        Start: %s
+        End:   %s''' % (e['summary'].encode('utf-8'),
+            e['start']['dateTime'], e['end']['dateTime']))
+
 @app.route('/get_mashup', methods=['POST'])
 def get_mashup():
     '''
