@@ -28,8 +28,19 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/login")
+def login():
+    decorator = appengine.OAuth2DecoratorFromClientSecrets(
+    'client_secrets.json',
+    scope='https://www.googleapis.com/auth/calendar')
 
+    class MainHandler(webapp.RequestHandler):
+        @decorator.oauth_required
+        def get(self):
+            http = decorator.http()
+            request = service.events().list(calendarId='primary')
 
+    
 @app.route('/get_mashup', methods=['POST'])
 def get_mashup():
     program=request.form.get("program")
