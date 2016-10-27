@@ -112,8 +112,15 @@ def get_train_time(jsonList, StartLocation):
             response = urllib.request.urlopen(trainTimes).read()
             response = response.decode("utf-8")
             parsed_json = json.loads(response)
-            arrival = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Destination"]["time"]
             departure = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Origin"]["time"]
+            arrival = parsed_json["Trip"][5]["LegList"]["Leg"]
+
+            if len(arrival) > 1:
+                # Byten finns
+                arrival = parsed_json["Trip"][5]["LegList"]["Leg"][1]["Destination"]["time"]
+            else:
+                # Finns inga byten
+                arrival = parsed_json["Trip"][5]["LegList"]["Leg"][0]["Destination"]["time"]
         except:
             print("Hållplatsen finns inte")
             return "Hållplatsen finns inte, försök igen!"
