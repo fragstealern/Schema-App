@@ -1,4 +1,5 @@
-  $(document).ready(function () {
+/*Den första delen här i dokumentet är till tåget och bussen*/  
+$(document).ready(function () {
     'use strict';
     $("#show-train").fadeIn(2000);
     $("#show-bus").fadeIn(2000);
