@@ -74,8 +74,14 @@ def login(JsonList):
 
         EVENT = {
             'summary': 'Tåget Avgår: ' + Departure ,
-            'start':  {'dateTime': date + 'T' + Departure + ':00Z'},
-            'end':    {'dateTime': date + 'T' + Arrival + ':00Z'},
+            'location': lokal,
+            'description': moment,
+            'start':  {
+            'dateTime': date + 'T' + Departure + ':00+00:00'},
+            'timeZone': 'Europa/Stockholm',
+            'end':    {
+            'dateTime': date + 'T' + Arrival + ':00+00:00'},
+            'timeZone': 'Europa/Stockholm',
         }
 
         e = CAL.events().insert(calendarId='primary',
@@ -86,10 +92,10 @@ def login(JsonList):
             End:   %s''' % (e['summary'].encode('utf-8'),
                 e['start']['dateTime'], e['end']['dateTime']))
 
-        try:
-            os.remove("storage.json")
-        except:
-            print("well u fuckt up")
+    try:
+        os.remove("storage.json")
+    except:
+        print("well u fuckt up")
 @app.route('/get_mashup', methods=['POST'])
 def get_mashup():
     '''
