@@ -9,7 +9,21 @@
     pip install -r requirements.txt
     ```
 
+2. Install Google's API
 
     ```bash
+    pip install --upgrade google-api-python-client
+    Unpack the file
+    python setup.py install
+    ```
 
+3. Start the python files
 
+    ```bash
+    Go into /api-app
+    run: python setup.py install
+    Go into /schema-app
+    run: python setup.py install
+    ```
+
+4. If both python files succesfully: http://localhost:8081/
