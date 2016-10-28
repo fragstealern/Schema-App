@@ -122,13 +122,32 @@ iframe{
 #tiden{
     min-height: 800px;
     padding: 20px 20px 50px 20px;
+    margin-top: 400px;
 }
+
 tr, td, th{
-    text-align: center;
+    text-align: left;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
 }
-#tagtid{
-    width: 20px;
+
+th {
+    font-weight: 500;
+    text-transform: uppercase;
+    
 }
+
+
+table {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+}
+
+#tagtid
+
+
 #back{
     display: block;
     border-style: solid;
@@ -141,4 +160,23 @@ tr, td, th{
     margin-top: 10px;
     margin-bottom: -20px;
     color: #f00;
+}
+
+#new {
+    padding: 10px;
+    border: solid #fff;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+
+}
+
+#google {
+    padding: 10px;
+    border: solid #fff;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+
 }

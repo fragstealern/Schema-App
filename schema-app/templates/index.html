@@ -80,7 +80,13 @@
 Här visas resultatet av användarens sökning.-->
 
 <div id="tiden">
-    <div class="traindiv">
+
+    <h3>{{startLocationName}} </h3>
+    <div class="white line"></div>
+    <h5 class="white-text inline">till</h5>
+    <div class="white line"></div>
+    <h3>Malmö C</h3>
+        <div class="traindiv">
         <div class="trainbody">
             <div class="windows">
                 <div class="window"></div>
@@ -104,12 +110,9 @@ Här visas resultatet av användarens sökning.-->
             </div>
         </div>
     </div>
-    <h3>{{startLocationName}} </h3>
-    <div class="white line"></div>
-    <h5 class="white-text inline">till</h5>
-    <div class="white line"></div>
-    <h3>Malmö C</h3>
-    <table>
+    
+    
+    <table id="tablebody">
         <tr>
             <th id="datum">Datum:</th>
             <th id="tagtid">Tåget avgår:</th>
@@ -130,10 +133,12 @@ Här visas resultatet av användarens sökning.-->
         </tr>
         {% endfor %}
     </table>
-    <div>
+    <div id="new">
         <a id="back" href="#">Ny Sökning</a>
     </div>
-    <a class="modal-trigger" href="#modal1">HEJSAN</a>
+    <div id="google">
+    <a class="modal-trigger" href="#modal1">Lägg till i Google Calender</a>
+    </div>
 </div>
 
 <footer>
@@ -143,6 +148,9 @@ Här visas resultatet av användarens sökning.-->
 
 {%if scroll%}
 <script>
+    
+    
+    
     //denna js funktionen gör så att sidan automatiskt scrollar ner:
     document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth"});
     //om inte den funkar så gör denna det:
