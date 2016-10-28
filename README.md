@@ -26,4 +26,8 @@
     run: python setup.py install
     ```
 
-4. If both python files succesfully: http://localhost:8081/
+4. If both python files succesfully:
+
+    ```bash
+      http://localhost:8081
+    ```
