@@ -33,6 +33,7 @@ def home():
 
 @app.route("/login")
 def test():
+    login()
     return render_template("test.html")
 
 
