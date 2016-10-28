@@ -37,7 +37,7 @@ def test():
     return render_template("test.html")
 
 
-def login():
+def login(JsonList):
     import googleapiclient
     from apiclient.discovery import build
     from httplib2 import Http
@@ -58,23 +58,38 @@ def login():
                 if flags else tools.run(flow, store)
     CAL = build('calendar', 'v3', http=creds.authorize(Http()))
 
-    GMT_OFF = '+06:00'      # PDT/MST/GMT-7
-    EVENT = {
-        'summary': 'Dinner with friends',
-        'start':  {'dateTime': '2016-10-28T19:00:00%s' % GMT_OFF},
-        'end':    {'dateTime': '2016-10-28T22:00:00%s' % GMT_OFF},
-    }
+    
+    
+    
+       
+    for item in JsonList:
+        parsed_json = json.loads(item)
+        startTime = parsed_json["StartTid"]
+        date = parsed_json["Datum"]
+        endTime = parsed_json["SlutTid"]
+        lokal = parsed_json["Lokal"]
+        moment = parsed_json["Moment"]
+        Departure = parsed_json["AvgangsTid"]
+        Arrival = parsed_json["AnkomstTid"]
+    
+        EVENT = {
+            'summary': 'Tåget Avgår: ' + Departure ,
+            'start':  {'dateTime': date + 'T' + Departure + ':00Z'},
+            'end':    {'dateTime': date + 'T' + Arrival + ':00Z'},
+        }
 
-    e = CAL.events().insert(calendarId='primary',
-            sendNotifications=True, body=EVENT).execute()
+        e = CAL.events().insert(calendarId='primary',
+                sendNotifications=True, body=EVENT).execute()
 
-    print('''*** %r event added:
-        Start: %s
-        End:   %s''' % (e['summary'].encode('utf-8'),
-            e['start']['dateTime'], e['end']['dateTime']))
+        print('''*** %r event added:
+            Start: %s
+            End:   %s''' % (e['summary'].encode('utf-8'),
+                e['start']['dateTime'], e['end']['dateTime']))
 
-    os.remove("storage.json")
-
+        try:
+            os.remove("storage.json")
+        except:
+            print("well u fuckt up")
 @app.route('/get_mashup', methods=['POST'])
 def get_mashup():
     '''
@@ -115,7 +130,7 @@ def get_mashup():
 
 
 
-
+    login(trainTimes)
     #Ingen aning, men det funkar :D
     testList = []
     for i in trainTimes:
@@ -123,7 +138,7 @@ def get_mashup():
         testList.append(parsed_json)
         # ---------------------------------------------------
 
-
+    
     return render_template("index.html", jsonList = testList, startLocationName = startLocationName, scroll='tiden')
 
 def get_schema(program, year, limitDays):
