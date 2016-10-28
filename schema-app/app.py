@@ -58,10 +58,10 @@ def login(JsonList):
                 if flags else tools.run(flow, store)
     CAL = build('calendar', 'v3', http=creds.authorize(Http()))
 
-    
-    
-    
-       
+
+
+
+
     for item in JsonList:
         parsed_json = json.loads(item)
         startTime = parsed_json["StartTid"]
@@ -71,7 +71,7 @@ def login(JsonList):
         moment = parsed_json["Moment"]
         Departure = parsed_json["AvgangsTid"]
         Arrival = parsed_json["AnkomstTid"]
-    
+
         EVENT = {
             'summary': 'Tåget Avgår: ' + Departure ,
             'start':  {'dateTime': date + 'T' + Departure + ':00Z'},
@@ -97,11 +97,13 @@ def get_mashup():
     '''
 
     # Informationen som användaren valt läggs in
+    calendarCheck=request.form.get('calendar')
     program=request.form.get("program")
     year=request.form.get("year")
     station=request.form.get("from")
     days=request.form.get("days")
     limitDays = request.form.get("lectures")
+
 
     #Hämtar stationsnamn och ID från Resrobot och lägger in
     station = urllib.parse.quote_plus(station, safe='', encoding=None, errors=None)
@@ -129,8 +131,8 @@ def get_mashup():
         return render_template("index.html", error = "Hållplatsen finns inte, försök igen!")
 
 
-
-    login(trainTimes)
+    if calendarCheck == "checked":
+        login(trainTimes)
     #Ingen aning, men det funkar :D
     testList = []
     for i in trainTimes:
@@ -138,7 +140,7 @@ def get_mashup():
         testList.append(parsed_json)
         # ---------------------------------------------------
 
-    
+
     return render_template("index.html", jsonList = testList, startLocationName = startLocationName, scroll='tiden')
 
 def get_schema(program, year, limitDays):
