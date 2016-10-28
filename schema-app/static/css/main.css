@@ -23,7 +23,7 @@ header{
     #program{
         display: block;
         width: 90%;
-      }
+    }
 
 }
 @media screen and (min-width:750px){
@@ -32,12 +32,12 @@ header{
         display: inline-block;
     }
     #year{
-            width: 20%;
-            display: inline-block;
+        width: 20%;
+        display: inline-block;
     }
     #lectures{
-            width: 20%;
-            display: inline-block;
+        width: 20%;
+        display: inline-block;
     }
 }
 #time{

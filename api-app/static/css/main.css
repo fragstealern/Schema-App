@@ -1,45 +1,7 @@
-html, body{
-    margin: 0px;
-    text-align: center;
-}
-body{
-    padding-top: 30px;
-}
-
-#select-div{
-    width: 100%;
-    min-height: 100px; 
-    text-align: center;
-}
-.drop-menu{
-    margin: 20px auto;
-    display: block;
-    z-index: 9;
-    border-style: solid;
-    width: 90%;
-    background: #000;
-    color: #fff;
-    border-color: #000;
-}
-.drop-menu:focus{
-    border-color: #000;
-}
-#program{
-    
-}
-.input{
-    background: rgba(0,0,0,0.5);
-}
-.getTime{
-    text-align: center;
-    padding: 10px;
-    font-size: 30px;
-    font-weight: 100;
-    box-shadow: 0px 0px 3px 0px;
-    border-radius: 100px;
-    transition: 0.3s;
-}
-.getTime:hover{
-    box-shadow: 0px 0px 3px 3px;
-    font-weight: 300;
+.line{
+    display: inline-block;
+    height: 2px;
+    width: 20%;
+    background: rgba(0,0,0,0.8);
+    margin: 8px 5px;
 }
