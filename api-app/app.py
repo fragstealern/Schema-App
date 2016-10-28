@@ -60,6 +60,7 @@ def get_schedule(course):
         #Kontrollerar så att moment finns, finns där inget så kommer except
         try:
             moment = post.find("moment").get_text()
+            moment = fullosning(moment)
         except:
             moment= "Moment finns ej"
 
@@ -78,9 +79,7 @@ def get_schedule(course):
     for i in jsonList:
         parsed_json = json.loads(i)
         testList.append(parsed_json)
-
-
-    return jsonify(testList)
+    return Response(response=json.dumps(testList), status=200, mimetype='application/json')
 
 def limit(jsonList, limitAmount):
     """
@@ -102,6 +101,20 @@ def limitdate(jsonList, limitDate):
         if schedule_date == limitDate:
             returnThis.append(item)
     return returnThis
+
+def fullosning(moment):
+
+    """
+    Detta är en extremt ful lösning, men eftersom denna fullösning fungerar
+    medans ingen annan finlösning funkar så får denna fullösning vara kvar :(
+    """
+    if "&#246;" in moment:
+        moment = moment.replace("&#246;", "ö")
+    if "&#214;" in moment:
+        moment = moment.replace("&#214;", "Ö")
+    if "&#228;" in moment:
+        moment = moment.replace("&#228;", "ä")
+    return moment
 
 
 
