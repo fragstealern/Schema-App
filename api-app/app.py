@@ -59,8 +59,7 @@ def get_schedule(course):
 
         #Kontrollerar så att moment finns, finns där inget så kommer except
         try:
-            moment_Tag = post.find("moment")
-            moment = moment_Tag.get_text()
+            moment = post.find("moment").get_text()
         except:
             moment= "Moment finns ej"
 
@@ -75,7 +74,13 @@ def get_schedule(course):
     if limitAmount != None:
         jsonList=limit(jsonList, limitAmount)
 
-    return jsonify(jsonList)
+    testList=[]
+    for i in jsonList:
+        parsed_json = json.loads(i)
+        testList.append(parsed_json)
+
+
+    return jsonify(testList)
 
 def limit(jsonList, limitAmount):
     """
@@ -97,6 +102,8 @@ def limitdate(jsonList, limitDate):
         if schedule_date == limitDate:
             returnThis.append(item)
     return returnThis
+
+
 
 
 

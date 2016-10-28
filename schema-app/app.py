@@ -168,7 +168,7 @@ def turn_back_time(jsonList):
 
     returnThis = []
     for item in jsonList:
-        parsed_json = json.loads(item)
+        parsed_json = item
         startTime = parsed_json["StartTid"]
         date = parsed_json["Datum"]
         endTime = parsed_json["SlutTid"]
