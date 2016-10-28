@@ -134,7 +134,7 @@ tr, td, th{
 th {
     font-weight: 500;
     text-transform: uppercase;
-    
+
 }
 
 
@@ -169,14 +169,5 @@ table {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-
-}
-
-#google {
-    padding: 10px;
-    border: solid #fff;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
 
 }

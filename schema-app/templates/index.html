@@ -110,8 +110,8 @@ Här visas resultatet av användarens sökning.-->
             </div>
         </div>
     </div>
-    
-    
+
+
     <table id="tablebody">
         <tr>
             <th id="datum">Datum:</th>
@@ -136,9 +136,6 @@ Här visas resultatet av användarens sökning.-->
     <div id="new">
         <a id="back" href="#">Ny Sökning</a>
     </div>
-    <div id="google">
-    <a class="modal-trigger" href="#modal1">Lägg till i Google Calender</a>
-    </div>
 </div>
 
 <footer>
@@ -148,21 +145,11 @@ Här visas resultatet av användarens sökning.-->
 
 {%if scroll%}
 <script>
-    
-    
-    
+
     //denna js funktionen gör så att sidan automatiskt scrollar ner:
     document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth"});
     //om inte den funkar så gör denna det:
     document.location.hash = '#' + '{{ scroll }}';
 </script>
 {%endif%}
-
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <p> Vill du lägga till informationen i din kalender?</p>
-            <a href="/add_to_calende">JA</a>
-            <a href="/index">NEJ</a>
-        </div>
-    </div>
 {% endblock %}
