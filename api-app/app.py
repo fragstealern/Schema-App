@@ -26,11 +26,17 @@ def home():
 
 @app.route('/get_schedule/<course>')
 def get_schedule(course):
+    '''
+    Hämtar schemat från Kronox API beroende på vilket program + årskull användaren väljer
+    '''
+
     response = urllib.request.urlopen('http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&sokMedAND=false&sprak=SV&resurser=p.' + course + '%2C')
 
+    #Tvättar XML-filen och tar fram alla schemaposts
     soup = 	BeautifulSoup(response, "lxml-xml")
     schemaPost = soup.findAll('schemaPost')
 
+    #Går igenom varje schemapost och hämtar vald information
     jsonList = []
     for post in schemaPost:
         second_tag = post('bokatDatum')
@@ -44,33 +50,30 @@ def get_schedule(course):
 
         resursnod_Tag = post.find(resursTypId="RESURSER_LOKALER")
 
+        #Kontrollerar så att det finns en lokal, finns där ingen så kommer except
         try:
             resursid_Tag = resursnod_Tag.find("resursId")
             lokal = resursid_Tag.get_text()
         except:
             lokal = "Lokal finns ej"
 
+        #Kontrollerar så att moment finns, finns där inget så kommer except
         try:
             moment_Tag = post.find("moment")
             moment = moment_Tag.get_text()
         except:
             moment= "Moment finns ej"
 
-
-
-
         jsonList.append(json.dumps({'Datum': date, 'StartTid': startTime, 'SlutTid': endTime, 'Lokal': lokal, 'Moment': moment}, sort_keys=True))
 
-
+    #Kör funktionen limitDate
     limitDate=request.args.get('date')
     if limitDate != None:
         jsonList=limitdate(jsonList, limitDate)
 
-
     limitAmount=request.args.get('limit')
     if limitAmount != None:
         jsonList=limit(jsonList, limitAmount)
-
 
     return jsonify(jsonList)
 
