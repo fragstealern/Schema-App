@@ -77,11 +77,9 @@ def login(JsonList):
             'location': lokal,
             'description': moment,
             'start':  {
-            'dateTime': date + 'T' + Departure + ':00+00:00'},
-            'timeZone': 'Europa/Stockholm',
+            'dateTime': date + 'T' + Departure + ':00+01:00'},
             'end':    {
-            'dateTime': date + 'T' + Arrival + ':00+00:00'},
-            'timeZone': 'Europa/Stockholm',
+            'dateTime': date + 'T' + Arrival + ':00+01:00'},
         }
 
         e = CAL.events().insert(calendarId='primary',
