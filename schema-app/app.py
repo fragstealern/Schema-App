@@ -32,6 +32,10 @@ def home():
     return render_template("index.html")
 
 @app.route("/login")
+def test():
+    return render_template("test.html")
+
+
 def login():
     import googleapiclient
     from apiclient.discovery import build
@@ -49,8 +53,7 @@ def login():
     creds = store.get()
     if not creds or creds.invalid:
         flow = client.flow_from_clientsecrets('client_secret.json', SCOPES)
-        creds = tools.run_flow(flow, store, flags) \
-                if flags else tools.run(flow, store)
+        creds = tools.run_flow(flow, store, flags)
     CAL = build('calendar', 'v3', http=creds.authorize(Http()))
 
     GMT_OFF = '+06:00'      # PDT/MST/GMT-7
@@ -69,7 +72,7 @@ def login():
             e['start']['dateTime'], e['end']['dateTime']))
 
     os.remove("storage.json")
-    return render_template("test.html")
+
 @app.route('/get_mashup', methods=['POST'])
 def get_mashup():
     '''
