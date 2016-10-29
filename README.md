@@ -3,6 +3,11 @@
 ## Installation
 
 
+0. Requirements
+    ```bash
+    Python 3.4.4
+    ```
+
 1. Install requirements
 
     ```bash
