@@ -13,6 +13,9 @@
     ```bash
     pip install -r requirements.txt
     ```
+    1.1 LXML
+    If you're using windows and get an error saying that microsoft visual c++ is required
+    Go to https://pypi.python.org/pypi/lxml/3.4.0 and download and install for Python version 3.4
 
 2. Install Google's API
 
