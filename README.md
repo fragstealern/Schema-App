@@ -20,7 +20,7 @@
 2. Install Google's API
 
     ```bash
-    pip install --upgrade google-api-python-client
+    Download the latest version https://pypi.python.org/pypi/google-api-python-client/
     Unpack the file
     python setup.py install
     ```
