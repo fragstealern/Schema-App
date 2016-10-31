@@ -24,7 +24,6 @@ header{
         display: block;
         width: 90%;
     }
-
 }
 @media screen and (min-width:750px){
     #program{
@@ -50,9 +49,8 @@ header{
 }
 iframe{
     border-style: none;
-
 }
-    #t1c, #t1{
+#t1c, #t1{
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .row{
@@ -71,8 +69,11 @@ iframe{
     padding: 0 0 0 10px;
     color: #fff;
     border-radius: 10px;
-    width: 90%;
+    width: 70%;
     margin: 20px auto;
+}
+#checkbox{
+    width: 20%;
 }
 .drop-menu{
     margin: 20px auto;
@@ -144,10 +145,6 @@ table {
     margin-right: auto;
     margin-bottom: 70px;
 }
-
-#tagtid
-
-
 #back{
     display: block;
     border-style: solid;
@@ -172,7 +169,7 @@ table {
 }
 
 #google {
-    color: black;
+    color: white;
     padding-right: 50px;
     font-size: 20px;
     font-weight: bold;

@@ -12,7 +12,7 @@
                     <h1 id="header1" class="brand-heading">School o'clock</h1>
                     <div id="select-div">
                         <form id="findTime" method="POST" action="/get_mashup">
-                            <select name="program" id="program" class="drop-menu">
+                            <select required name="program" id="program" class="drop-menu">
                                 <option disabled selected value>Välj ditt program</option>
                                 <option value="TGDAB">
                                     Datavetenskap och applikationsutveckling (TGDAB)
@@ -39,13 +39,13 @@
                                     Systemutvecklare (TGSYS)
                                 </option>
                             </select>
-                            <select name="year" id="year" class="drop-menu">
+                            <select required name="year" id="year" class="drop-menu">
                                 <option disabled selected value>Årskull</option>
                                 <option value="16h">16</option>
                                 <option value="15h">15</option>
                                 <option value="14h">14</option>
                             </select>
-                            <select name="lectures" id="lectures" class="drop-menu">
+                            <select required name="lectures" id="lectures" class="drop-menu">
                                 <option disabled selected value>Antal Moment</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -66,8 +66,10 @@
                             <h6 id="error">{{error}}</h6>
                             {%endif%}
                             <input required name="from" id="from" type="text" class="drop-menu input" placeholder="Skriv in din hållplats">
-                            <input type="checkbox" id="calendar" name="calendar" value="checked"/>
-                            <label for="calendar" id="google">Lägg till i google calender</label>
+                            <div id="checkbox" class="drop-menu input">
+                                <input type="checkbox" id="calendar" name="calendar" value="checked"/>
+                                <label for="calendar" id="google">Lägg till i google calender</label>
+                            </div>
                             <input type="submit" value="Time Me" id="next" class="getTime">
                         </form>
                     </div>
