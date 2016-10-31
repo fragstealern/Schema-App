@@ -24,7 +24,13 @@ section{
 .inline{
     display: inline-block;
 }
-.description, .indata, .svar{
+.inledning{
+    text-align: left;
+    width: 70%;
+    margin: auto;
+}
+
+.description, .indata, .svar, .inledning{
     font-family: 'Raleway', sans-serif;
 }
 .description{
