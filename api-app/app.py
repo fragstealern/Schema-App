@@ -107,6 +107,8 @@ def fullosning(moment):
     """
     Detta är en extremt ful lösning, men eftersom denna fullösning fungerar
     medans ingen annan finlösning funkar så får denna fullösning vara kvar :(
+    Den tar bort fula saker som inte ska visas och bytar ut den mot lite
+    vackrare saker som ser bättre ut :D
     """
     if "&#246;" in moment:
         moment = moment.replace("&#246;", "ö")

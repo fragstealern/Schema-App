@@ -5,7 +5,7 @@
 
 0. Requirements
     ```bash
-    Python 3.4.4
+    Python 3.4.4 or above
     ```
 
 1. Install requirements
