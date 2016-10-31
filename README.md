@@ -34,7 +34,7 @@
     run: python app.py
     ```
 
-4. If both python files succesfully:
+4. If both python files starts succesfully:
 
     ```bash
       http://localhost:8081
