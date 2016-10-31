@@ -147,13 +147,38 @@ Här visas resultatet av användarens sökning.-->
 </footer>
 
 
+
+
+
+
+
+
+
+<script src="../static/js/jquery.js"></script>
+<script>
+
+$("#findTime").submit( function() {
+    $('html, body').animate({
+         scrollTop: $("#tiden").delay( 1000 ).offset().top
+    }, 2000);
+    return true;
+}); 
+    
+</script>
+
 {%if scroll%}
 <script>
 
     //denna js funktionen gör så att sidan automatiskt scrollar ner:
-    document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth"});
+    document.getElementById('{{ scroll }}');
     //om inte den funkar så gör denna det:
     document.location.hash = '#' + '{{ scroll }}';
 </script>
 {%endif%}
 {% endblock %}
+
+
+
+
+
+
