@@ -6,7 +6,122 @@
 {% block content %}
 <h1>SCHOOL O´CLOCK</h1>
 <div class="white line"></div>
-<h3>API DOCUMENTATION</h3>
-<div class="white line"></div>
+<h3>API-Beskrivning</h3>
+<p>
+I listan nedan kan ett specifikt schema tas fram med ett schema ID't<br>
+Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år<br>
+(tillexempel TGIAA15h)
+</p>
+
+<section class="GET">
+  <h4>GET /get_schedule/[PROGRAMKOD]</h4>
+  <p>Hämtar alla moment från [PROGRAMKOD]'en du skriver in</p>
+  <p>Indata:<br>Ingen</p>
+  <p>Svar</p>
+  <section class="response">
+    [<br>
+  {
+    "Moment": "Laboration",
+    "StartTid": "10:15",
+    "SlutTid": "12:00",
+    "Datum": "2016-10-31",
+    "Lokal": "OR:C402"
+  },<br>
+  {
+    "Moment": "Projektredovisning",
+    "StartTid": "08:15",
+    "SlutTid": "12:00",
+    "Datum": "2016-11-01",
+    "Lokal": "OR:B423"
+  },<br>
+  {
+    "Moment": "Laboration",
+    "StartTid": "13:15",
+    "SlutTid": "17:00",
+    "Datum": "2016-11-01",
+    "Lokal": "NI:A0314"
+  },<br>
+  {
+    "Moment": "Projektredovisning",
+    "StartTid": "13:15",
+    "SlutTid": "17:00",
+    "Datum": "2016-11-02",
+    "Lokal": "OR:B423"
+  },<br>
+  {
+    "Moment": "Kursavslutning",
+    "StartTid": "13:15",
+    "SlutTid": "15:00",
+    "Datum": "2016-11-03",
+    "Lokal": "NI:A0307"
+  },<br>
+  {
+    "Moment": "Kursintroduktion",
+    "StartTid": "10:15",
+    "SlutTid": "12:00",
+    "Datum": "2016-11-07",
+    "Lokal": "NI:A0311"
+  },<br>
+  {
+    "Moment": "L01 Course intro and overview of the information design topic",
+    "StartTid": "13:15",
+    "SlutTid": "15:00",
+    "Datum": "2016-11-07",
+    "Lokal": "NI:A0611"
+  },<br>
+  {
+    "Moment": "Föreläsning",
+    "StartTid": "13:15",
+    "SlutTid": "15:00",
+    "Datum": "2016-11-08",
+    "Lokal": "NI:A0311"
+  }<br>
+]
+  </section>
+</section>
+
+<section class="GET">
+  <h4>GET /get_schedule/[PROGRAMKOD]?limit=X</h4>
+  <p>Hämtar schemat men begränsar den till X moment</p>
+  <p>Indata:<br>Ingen</p>
+  <p>Svar</p>
+  <section class="response">
+    [<br>
+  {
+    "Moment": "Laboration",
+    "StartTid": "10:15",
+    "SlutTid": "12:00",
+    "Datum": "2016-10-31",
+    "Lokal": "OR:C402"
+  },<br>
+  {
+    "Moment": "Projektredovisning",
+    "StartTid": "08:15",
+    "SlutTid": "12:00",
+    "Datum": "2016-11-01",
+    "Lokal": "OR:B423"
+  }<br>
+]
+  </section>
+</section>
+
+<section class="GET">
+  <h4>GET /get_schedule/[PROGRAMKOD]?date=yyyy-mm-dd</h4>
+  <p>Hämtar schemat men begränsar den till ett visst datum i formatet yyyy-mm-dd</p>
+  <p>Indata:<br>Ingen</p>
+  <p>Svar</p>
+  <section class="response">
+    [<br>
+      {
+        "Moment": "Föreläsning",
+        "StartTid": "13:15",
+        "SlutTid": "15:00",
+        "Datum": "2016-11-08",
+        "Lokal": "NI:A0311"
+      }<br>
+    ]
+  </section>
+</section>
+
 
 {% endblock %}
