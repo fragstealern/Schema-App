@@ -24,6 +24,9 @@ section{
 .inline{
     display: inline-block;
 }
+.description, .indata, .svar{
+    font-family: 'Raleway', sans-serif;
+}
 .description{
     width: 80%;
     margin: auto;
@@ -35,6 +38,7 @@ section{
     width: 30%;
 }
 .response{
+    font-family: 'Source Code Pro', monospace;
     background: #ccc;
     color: #111;
     border-radius: 20px;
