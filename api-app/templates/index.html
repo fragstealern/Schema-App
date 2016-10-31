@@ -2,11 +2,11 @@
 {% block title %}
   Start
 {% endblock %}
-
 {% block content %}
 <h1>SCHOOL O´CLOCK</h1>
 <div class="white line"></div>
-<h3>API-Beskrivning</h3>
+<h3 class="inline">API-Beskrivning</h3>
+<div class="white line"></div>
 <p>
 I listan nedan kan ett specifikt schema tas fram med ett schema ID't<br>
 Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år<br>
@@ -15,12 +15,12 @@ Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år<br>
 <p>Vi har valt dessa parametrar då vi kände att det är dem enda lämpliga för projektet, 
     man hade kunnat lägga till en moment parameter. Men den parametern hade sällan använts </p>
 
-<section class="GET">
+<section class="GET one">
   <h4>GET /get_schedule/[PROGRAMKOD]</h4>
-  <p>Hämtar alla moment från [PROGRAMKOD]'en du skriver in</p>
-  <p>Indata:<br>Ingen</p>
-  <p>Svar</p>
+  <p class="description">Hämtar alla moment från [PROGRAMKOD]'en du skriver in</p>
+  <p class="indata">Indata: Ingen</p>
   <section class="response">
+    <p class="svar">Svar:</p>
     [<br>
   {
     "Moment": "Laboration",
@@ -82,12 +82,12 @@ Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år<br>
   </section>
 </section>
 
-<section class="GET">
+<section class="GET two">
   <h4>GET /get_schedule/[PROGRAMKOD]?limit=X</h4>
-  <p>Hämtar schemat men begränsar den till X moment</p>
-  <p>Indata:<br>Ingen</p>
-  <p>Svar</p>
+  <p class="description">Hämtar schemat men begränsar den till X moment</p>
+  <p class="indata">Indata: Ingen</p>
   <section class="response">
+    <p class="svar">Svar:</p>
     [<br>
   {
     "Moment": "Laboration",
@@ -107,12 +107,12 @@ Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år<br>
   </section>
 </section>
 
-<section class="GET">
+<section class="GET three">
   <h4>GET /get_schedule/[PROGRAMKOD]?date=yyyy-mm-dd</h4>
-  <p>Hämtar schemat men begränsar den till ett visst datum i formatet yyyy-mm-dd</p>
-  <p>Indata:<br>Ingen</p>
-  <p>Svar</p>
+  <p class="description">Hämtar schemat men begränsar den till ett visst datum i formatet yyyy-mm-dd</p>
+  <p class="indata">Indata: Ingen</p>
   <section class="response">
+      <p class="svar">Svar:</p>
     [<br>
       {
         "Moment": "Föreläsning",
@@ -125,7 +125,7 @@ Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år<br>
   </section>
 </section>
 
-<section>
+<section class="four">
   <h4>Kodexempel</h4>
   <h6>GET /get_schedule/TGIAA15h?date=2016-11-07&limit=1</h6>
   <section class="response">

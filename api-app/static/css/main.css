@@ -1,5 +1,18 @@
+html{
+    margin: 0px;
+    padding: 0px;
+}
 body{
     background: #333;
+    text-align: center;
+    padding: 20px 5px;
+    margin: 0px;
+}
+section{
+    padding: 20px 10px
+}
+.GET, .four{
+    padding: 80px 0px;
 }
 .line{
     display: inline-block;
@@ -7,4 +20,41 @@ body{
     width: 20%;
     background: rgba(0,0,0,0.8);
     margin: 8px 5px;
+}
+.inline{
+    display: inline-block;
+}
+.description{
+    width: 80%;
+    margin: auto;
+}
+.indata{
+    margin: 20px auto;
+    border-style: solid none;
+    border-width: thin;
+    width: 30%;
+}
+.response{
+    background: #ccc;
+    color: #111;
+    border-radius: 20px;
+    border: solid #fff;
+    width: 60%;
+    margin: auto;
+}
+.one{
+    background: #000;
+    background: linear-gradient(#000 , #446);
+}
+.two{
+    background: #446;
+    background: linear-gradient(#446 , #668);
+}
+.three{
+    background: #668;
+    background: linear-gradient(#668 , #88a);
+}
+.four{
+    background: #88a;
+    background: linear-gradient(#88a , #aac);
 }
