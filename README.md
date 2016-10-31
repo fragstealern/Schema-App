@@ -29,9 +29,9 @@
 
     ```bash
     Go into /api-app
-    run: python setup.py install
+    run: python app.py
     Go into /schema-app
-    run: python setup.py install
+    run: python app.py
     ```
 
 4. If both python files succesfully:
