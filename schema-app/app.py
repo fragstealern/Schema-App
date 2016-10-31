@@ -75,7 +75,7 @@ def login(JsonList):
         EVENT = {
             'summary': 'Tåget Avgår: ' + Departure ,
             'location': lokal,
-            'description': moment,
+            'description': "Moment: " + moment + "\n" + "Momentet börjar: " + startTime + "\n" + "Momentet avslutas: " + endTime + "\n",
             'start':  {
             'dateTime': date + 'T' + Departure + ':00+01:00'},
             'end':    {
