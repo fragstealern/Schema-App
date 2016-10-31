@@ -156,14 +156,15 @@ Här visas resultatet av användarens sökning.-->
 
 <script src="../static/js/jquery.js"></script>
 <script>
-
-$("#findTime").submit( function() {
-    $('html, body').animate({
-         scrollTop: $("#tiden").delay( 1000 ).offset().top
-    }, 2000);
-    return true;
-}); 
     
+    $("#findTime").submit( function() {
+        setTimeout(function(){
+            $('html, body').animate({
+             scrollTop: $("#tiden").offset().top
+            }, 5000)
+        }, 5000);
+        return true;
+    }); 
 </script>
 
 {%if scroll%}

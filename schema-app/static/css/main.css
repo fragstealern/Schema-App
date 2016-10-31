@@ -171,9 +171,8 @@ table {
 
 #new {
     padding: 10px;
-    border: solid #fff;
     width: 200px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
