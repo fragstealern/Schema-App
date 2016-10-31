@@ -114,9 +114,12 @@ def fullosning(moment):
         moment = moment.replace("&#214;", "Ö")
     if "&#228;" in moment:
         moment = moment.replace("&#228;", "ä")
-
+    if "&#229;" in moment:
+        moment = moment.replace("&#229;", "å")
     if "&#180;" in moment:
         moment = moment.replace("&#180;", "'")
+    if "<br />" in moment:
+        moment = moment.replace("<br />", ". ")
     return moment
 
 
