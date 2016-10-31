@@ -111,7 +111,7 @@ def get_mashup():
 
     #Hämtar stationsnamn och ID från Resrobot och lägger in
     station = urllib.parse.quote_plus(station, safe='', encoding=None, errors=None)
-    stationLink = "https://api.resrobot.se/v2/location.name?key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&input=" + station
+    stationLink = "https://api.resrobot.se/v2/location.name?key=c4805f2a-0c8f-4b41-8b6d-b618283effd3&format=json&input=" + station
     response = urllib.request.urlopen(stationLink).read()
     response = response.decode("utf-8")
     parsed_json = json.loads(response)
@@ -195,7 +195,7 @@ def get_train_time(jsonList, StartLocation):
         TagTid = parsed_json["TagTid"]
 
         #Hämtar tågtabellen
-        trainTimes = "https://api.resrobot.se/v2/trip?originId=" + StartLocation + "&destId=740098548&date=" + date + "&time=" + TagTid + "&key=c98b8eb7-fc20-4d45-b3a9-d65189e5a8cb&format=json&searchForArrival=1&products=144"
+        trainTimes = "https://api.resrobot.se/v2/trip?originId=" + StartLocation + "&destId=740098548&date=" + date + "&time=" + TagTid + "&key=c4805f2a-0c8f-4b41-8b6d-b618283effd3&format=json&searchForArrival=1&products=144"
         try:
             response = urllib.request.urlopen(trainTimes).read()
             response = response.decode("utf-8")
