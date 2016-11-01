@@ -7,16 +7,28 @@
 <div class="white line"></div>
 <h3 class="inline">API-Beskrivning</h3>
 <div class="white line"></div>
+
 <p class="inledning">
-    I listan nedan kan ett specifikt schema tas fram med ett schemaID.<br>
-    Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år (till exempel TGIAA15h).
-</p>
-<p class="inledning">
-    Vi har valt dessa parametrar då vi kände att det är dem enda lämpliga för projektet, 
-    man hade kunnat lägga till en moment parameter. Men den parametern hade sällan använts.
+    Detta API bygger på att hämta utvald data från Kronoxschemat och spara ner det från XML till JSON-format.
+    Den data som hämtas är Moment, Starttid, Sluttid, Datum och Lokal. För denna tjänst är det den information som
+    ansågs lämpig att presentera för användaren.
 </p>
 <p class="inledning">
 
+    APIet använder metoden GET och består av konsekvent och semantisk namngivning. Det är designat
+    med förhoppning att det ska vara enkelt för externa utvecklare att förstå och kunna använda sig av APIet.
+    De bibliotek som används är Flask, BeatifulSoup, URLlib.request och JSON.
+</p>
+
+<p class="inledning">
+    De parametrar som används är <em>limit</em> och <em>date</em>, eftersom de ansågs mest lämpliga för APIet.
+    Det hade även gått att använda en <em>moment</em>-parameter, men den blev bortprioriterad eftersom den sällan hade använts.
+</p>
+
+
+<p class="inledning">
+    I listan nedan kan ett specifikt schema tas fram med ett schemaID.<br>
+    Ersätt alltid [PROGRAMKOD] med programkoden tillsammans med år (till exempel TGIAA15h).
 </p>
 
 <section class="GET one">
