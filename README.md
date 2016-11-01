@@ -1,7 +1,6 @@
-# School a' clock
+# School o'clock
 
 ## Installation
-
 
 0. Requirements
     ```bash
