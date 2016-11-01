@@ -122,6 +122,8 @@ def fullosning(moment):
         moment = moment.replace("&#180;", "'")
     if "<br />" in moment:
         moment = moment.replace("<br />", ". ")
+    if "<br> in moment":
+        moment = moment.replace("<br>", " ")
     return moment
 
 
