@@ -32,7 +32,7 @@
 </p>
 
 <section class="GET one">
-    <h4>GET</h4><h4>/get_schedule/[PROGRAMKOD]</h4>
+    <h4>GET</h4><h4>/v1/get_schedule/[PROGRAMKOD]</h4>
     <p class="description">Hämtar alla moment från [PROGRAMKOD] du skriver in.</p>
     <p class="indata">Indata: Ingen</p>
     <section class="response">
@@ -100,7 +100,7 @@
 
 <section class="GET two">
     <h4>GET</h4>
-    <h4>/get_schedule/[PROGRAMKOD]?limit=X</h4>
+    <h4>/v1/get_schedule/[PROGRAMKOD]?limit=X</h4>
     <p class="description">Hämtar schemat men begränsar den till X moment.</p>
     <p class="indata">Indata: Ingen</p>
     <section class="response">
@@ -126,7 +126,7 @@
 
 <section class="GET three">
     <h4>GET</h4>
-    <h4>/get_schedule/[PROGRAMKOD]?date=yyyy-mm-dd</h4>
+    <h4>/v1/get_schedule/[PROGRAMKOD]?date=yyyy-mm-dd</h4>
     <p class="description">Hämtar schemat men begränsar den till ett visst datum i formatet yyyy-mm-dd.</p>
     <p class="indata">Indata: Ingen</p>
     <section class="response">
@@ -145,7 +145,7 @@
 
 <section class="four">
   <h4>Kodexempel</h4>
-  <h6>GET /get_schedule/TGIAA15h?date=2016-11-07&limit=1</h6>
+  <h6>GET /v1/get_schedule/TGIAA15h?date=2016-11-07&limit=1</h6>
   <section class="response">
     [<br>
   {

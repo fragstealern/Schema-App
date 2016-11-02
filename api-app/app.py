@@ -24,7 +24,7 @@ def home():
 
 
 
-@app.route('/get_schedule/<course>')
+@app.route('/v1/get_schedule/<course>')
 def get_schedule(course):
     '''
     Hämtar schemat från Kronox API beroende på vilket program + årskull användaren väljer

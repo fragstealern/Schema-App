@@ -37,4 +37,10 @@
 
     ```bash
       http://localhost:8081
+
     ```
+
+5. API Documentation
+    ```bash
+      http://localhost:8082
+    ``

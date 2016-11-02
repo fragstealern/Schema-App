@@ -152,7 +152,7 @@ def get_schema(program, year, limitDays):
     Hämtar schemat från vårt API
     '''
 
-    schema = "http://localhost:8082/get_schedule/" + program + year + "?limit=" + limitDays
+    schema = "http://localhost:8082/v1/get_schedule/" + program + year + "?limit=" + limitDays
     response = urllib.request.urlopen(schema).read()
     response = response.decode("utf-8")
     parsed_json = json.loads(response)
