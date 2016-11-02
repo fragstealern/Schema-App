@@ -1,4 +1,3 @@
-
 # *-* coding:utf-8*-*
 # Laddar in alla ramverk.
 from __future__ import print_function
